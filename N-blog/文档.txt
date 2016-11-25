@@ -1,0 +1,18 @@
+# 接口文档
+##登录
+
+### 1.1. 登录验证  POST http://localhost:8080/N-blog/H+2.2/login.jsp
+        参数：
+       	username    = 销售id
+        password      = 客户id
+      
+        返回：
+        <result name="login_success" >/H+2.2/index.jsp</result>
+		<result name="login_failure">/H+2.2/login.jsp</result>
+
+### 1.2. 退出登录  POST http://localhost:8080/N-blog/H+2.2/login.jsp
+        参数：
+      
+        返回：
+        <result name="logout_success">/H+2.2/index.jsp</result>
+		

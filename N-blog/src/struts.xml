@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<!-- 配置包名 -->
+<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+<package name="/" namespace="/"  extends="struts-default">
+	<action name="User" class="controller.UserAction">
+	<result name="login_success" >/H+2.2/index.jsp</result>
+	<result name="login_failure">/H+2.2/login.jsp</result>
+	</action>
+	<action name="Logout" class="controller.UserAction" method="logout">
+	<result name="logout_success">/H+2.2/index.jsp</result>
+	</action>
+</package>
+<package name="Regiser" namespace="/"  extends="struts-default">
+	<action name="Register" class="controller.RegisterAction">
+	<result name="register_success" >/H+2.2/index.jsp</result>
+	<result name="register_failure">/H+2.2/register.jsp</result>
+	</action>
+</package>
+<package name="CRUDDEMO" namespace="/"  extends="struts-default">
+	<action name="List" class="controller.BlogAction" method="list">
+	<result >/H+2.2/table_data_tables.jsp</result>
+	</action>
+	<!-- <action name="Search" class="controller.BlogAction" method="search">
+	<result >/frontstage/blog/search.jsp</result>
+	</action> -->
+	<action  name="Remove" class="controller.BlogAction" method="remove">
+	<result type ="redirect">/H+2.2/List.action</result>
+	</action>
+	<action name="Load" class="controller.BlogAction" method="load">
+	<result>/H+2.2/edit.jsp</result>
+	</action>
+	<action name="Add" class="controller.BlogAction" method="add">
+	<result type="redirect">/H+2.2/List.action</result>
+	</action>
+	<action name="Change" class="controller.BlogAction" method="change">
+	<result type="redirect">/H+2.2/List.action</result>
+	</action>
+</package>
+</struts>
+<!-- type ="redirect可以重定向 -->

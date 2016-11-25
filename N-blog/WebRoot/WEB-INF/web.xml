@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>N-blog</display-name>
+  <!-- 过滤器 名称 -->
+  <!-- filter-name必须保持一致 -->
+  <filter>
+  <filter-name>struts2</filter-name>
+  <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <!-- 映射  过滤所有路径 -->
+  <filter-mapping>
+  <filter-name>struts2</filter-name>
+  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>h/index.html</welcome-file>
+    <welcome-file>/h/index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!--错误返回404页面  -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/h/404.html</location>
+	</error-page>
+</web-app>
