@@ -7,17 +7,17 @@
 <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 <package name="/" namespace="/"  extends="struts-default">
 	<action name="User" class="controller.UserAction">
-	<result name="login_success" >/H+2.2/index.jsp</result>
-	<result name="login_failure">/H+2.2/login.jsp</result>
+	<result name="login_success" >/h/index.jsp</result>
+	<result name="login_failure">/h/login.jsp</result>
 	</action>
 	<action name="Logout" class="controller.UserAction" method="logout">
-	<result name="logout_success">/H+2.2/index.jsp</result>
+	<result name="logout_success">/h/index.jsp</result>
 	</action>
 </package>
 <package name="Regiser" namespace="/"  extends="struts-default">
 	<action name="Register" class="controller.RegisterAction">
-	<result name="register_success" >/H+2.2/index.jsp</result>
-	<result name="register_failure">/H+2.2/register.jsp</result>
+	<result name="register_success" >/h/index.jsp</result>
+	<result name="register_failure">/h/register.jsp</result>
 	</action>
 </package>
 <package name="CRUDDEMO" namespace="/"  extends="struts-default">

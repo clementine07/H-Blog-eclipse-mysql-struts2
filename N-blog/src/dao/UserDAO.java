@@ -16,8 +16,7 @@ public class UserDAO {
 			{
 				User p = new User();
 				p.setUsername(rs.getString("username"));
-				p.setPassword(rs.getString("password"));	
-				p.setPhone(rs.getInt("phone"));
+				p.setPassword(rs.getString("password"));				
 				p.setEmail(rs.getString("email"));	
 				users.add(p);
 			}
@@ -29,18 +28,17 @@ public class UserDAO {
 		
 		return users;
 	}
-	//增加User
+	//增加User 注册
 	public int addUsers(User user)
 	{
 		int result = 0;
 		Connection con = db.MyConnection.getConnection();		
 		try
 		{
-			PreparedStatement ps = con.prepareStatement("INSERT INTO users (username,password,phone,email) VALUE (?,?,?,?)");
+			PreparedStatement ps = con.prepareStatement("INSERT INTO users (username,password,email) VALUE (?,?,?)");
 			ps.setString(1, user.getUsername());
-			ps.setString(2, user.getPassword());
-			ps.setInt(3, user.getPhone());
-			ps.setString(4, user.getEmail());
+			ps.setString(2, user.getPassword());		
+			ps.setString(3, user.getEmail());
 			result = ps.executeUpdate();
 			
 		}
@@ -78,13 +76,12 @@ public class UserDAO {
 	{
 		Connection conn=db.MyConnection.getConnection();//代码重用，创建连接
 		boolean result=false;//初始值flase
-		System.out.println(58);
 		try
 		{
 		Statement sql= conn.createStatement();
 		ResultSet rs = sql.executeQuery("SELECT * FROM users  where username='"
 				+username+"' and password='"+password+"'");
-		System.out.println("64"+username+password);
+		System.out.println("84"+username+password);
 		if(rs.next())
 		{
 			return true;
@@ -99,8 +96,14 @@ public class UserDAO {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//登录
 		UserDAO myLgoin=new UserDAO();
 		System.out.println(myLgoin.login("admin","admin"));
+		//测试修改blog 成功
+		UserDAO blogDAO = new UserDAO();
+		User blog =new User("7777","606060","7777@qq.com");
+		int a = blogDAO.addUsers(blog);
+		System.out.println(a);
 	}
 
 }

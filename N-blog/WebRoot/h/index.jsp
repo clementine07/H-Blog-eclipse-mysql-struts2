@@ -5,7 +5,6 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
@@ -66,7 +65,9 @@
                         </a>              
                     </li>
                     <li>
-                        <a class="J_menuItem" href="layouts.jsp"><i class="fa fa-columns"></i> <span class="nav-label">登录</span>
+                        <a href="#">
+                        <i class="fa fa-columns"></i>
+                         <span class="nav-label">登录</span>
                         <span class="fa arrow"></span>
                         </a>
                          <ul class="nav nav-second-level">                   		                                   

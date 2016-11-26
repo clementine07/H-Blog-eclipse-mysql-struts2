@@ -14,6 +14,9 @@ public class RegisterAction extends SuperAction {
 	private String email;
 	private String password;
 	private String passagain;
+	User user;
+	ArrayList <User> users; //创建arraylist，存储获取到的数组
+	UserDAO userDAO = new UserDAO();	
 	public String getUsername() {
 		return username;
 	}
@@ -38,11 +41,6 @@ public class RegisterAction extends SuperAction {
 	public void setPassagain(String passagain) {
 		this.passagain = passagain;
 	}
-	
-	User user;
-	ArrayList <User> users; //创建arraylist，存储获取到的数组
-	UserDAO userDAO = new UserDAO();
-	
 	public User getUser() {
 		return user;
 	}

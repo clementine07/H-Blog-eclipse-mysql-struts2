@@ -35,17 +35,22 @@
             </div>
             <h3>欢迎注册 H+</h3>
             <p>创建一个H+新账户</p>
-            <form class="m-t" role="form" action="login.html">
+          <!--   <form class="m-t" role="form" action="Regiser" method="post"> -->
+          		<form name="RegisterForm" action="Register" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="请输入用户名" required="">
+                    <input type="text" class="form-control" placeholder="请输入用户名" required="" name="username">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="请输入密码" required="">
+                    <input type="email" class="form-control" placeholder="请输入邮箱账号" required="" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="请再次输入密码" required="">
+                    <input type="password" class="form-control" placeholder="请输入密码" required="" name="password">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="请再次输入密码" required="" name="passagain">
                 </div>
                 <div class="form-group text-left">
+                <s:fielderror/><!-- 显示表单验证的出错信息 -->
                     <div class="checkbox i-checks">
                         <label class="no-padding">
                             <input type="checkbox"><i></i> 我同意注册协议</label>

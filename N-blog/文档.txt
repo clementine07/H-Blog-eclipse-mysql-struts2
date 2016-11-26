@@ -1,6 +1,9 @@
 # 接口文档
-##登录
 
+##前端页面
+登录		http://localhost:8080/N-blog/h/login.jsp	
+注册		http://localhost:8080/N-blog/h/register.jsp
+##登录
 ### 1.1. 登录验证  POST http://localhost:8080/N-blog/H+2.2/login.jsp
         参数：
        	username    = 销售id
