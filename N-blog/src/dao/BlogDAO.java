@@ -23,6 +23,9 @@ public class BlogDAO {
 				p.setTime(rs.getString("time"));	
 				p.setData(rs.getString("data"));	
 				p.setTitle(rs.getString("title"));
+				p.setRead(rs.getInt("read"));
+				p.setComment(rs.getInt("comment"));
+				p.setLabel(rs.getString("label"));
 				Blogs.add(p);
 			}
 		}
@@ -62,11 +65,13 @@ public class BlogDAO {
 		
 		try
 		{
-			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (id,time,data,title) VALUE (?,?,?,?)");
-			ps.setString(1, blog.getId());
+			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (title,time,data,read,comment,label) VALUE (?,?,?,?,?,?)");			
+			ps.setString(1, blog.getTitle());
 			ps.setString(2, blog.getTime());
 			ps.setString(3, blog.getData());
-			ps.setString(4, blog.getTitle());
+			ps.setInt(4, blog.getRead());
+			ps.setInt(5, blog.getComment());
+			ps.setString(6, blog.getLabel());
 			result = ps.executeUpdate();
 			
 		}

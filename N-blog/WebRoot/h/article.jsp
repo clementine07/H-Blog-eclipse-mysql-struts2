@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@taglib uri="/struts-tags" prefix="s" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE  html  PUBLIC  "-//W3C//DTD  XHTML  1.0  Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 
 <head>
 
@@ -23,20 +24,23 @@
 </head>
 
 <body class="gray-bg">
+	<s:if test="null == blog">
+	</s:if>
+	<s:else>
+	
     <div class="wrapper wrapper-content  animated fadeInRight article">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="ibox">
                     <div class="ibox-content">
                         <div class="pull-right">
-                            <button class="btn btn-white btn-xs" type="button">700BIKE</button>
-                            <button class="btn btn-white btn-xs" type="button">BeginOne</button>
-                            <button class="btn btn-white btn-xs" type="button">乐视超级自行车</button>
+                            <button class="btn btn-white btn-xs" type="button" value="blog.label"></button>
+                            <button class="btn btn-white btn-xs" type="button" value="blog.read"></button>
+                            <button class="btn btn-white btn-xs" type="button" value="blog.comment"></button>
+                           
                         </div>
                         <div class="text-center article-title">
-                            <h1>
-                                    自行车都智能化了，你可知道它的历史？
-                                </h1>
+                           <h1 class="title"><a href="/"><s:property value="title" /></a></h1>
                         </div>
                         <p>
                             在不少旁观者的眼里，智能化几乎成了一种避之唯恐不及的“瘟疫”，开始攀附上大大小小、各式各样的工具和设备，从水杯、灯泡、体重秤这样的小物件，再到冰箱、洗衣机这些生活中的庞然大物。
@@ -200,6 +204,8 @@
         </div>
 
     </div>
+	
+	</s:else>
 
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>

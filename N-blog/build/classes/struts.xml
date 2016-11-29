@@ -22,22 +22,25 @@
 </package>
 <package name="CRUDDEMO" namespace="/"  extends="struts-default">
 	<action name="List" class="controller.BlogAction" method="list">
-	<result >/H+2.2/table_data_tables.jsp</result>
+	<result >/h/table_data_tables.jsp</result>
 	</action>
 	<!-- <action name="Search" class="controller.BlogAction" method="search">
 	<result >/frontstage/blog/search.jsp</result>
 	</action> -->
 	<action  name="Remove" class="controller.BlogAction" method="remove">
-	<result type ="redirect">/H+2.2/List.action</result>
+	<result type ="redirect">/h/List.action</result>
 	</action>
 	<action name="Load" class="controller.BlogAction" method="load">
-	<result>/H+2.2/edit.jsp</result>
+	<result>/h/form_basic.jsp</result>
 	</action>
 	<action name="Add" class="controller.BlogAction" method="add">
-	<result type="redirect">/H+2.2/List.action</result>
+	<result type="redirect">/h/List.action</result>
 	</action>
 	<action name="Change" class="controller.BlogAction" method="change">
-	<result type="redirect">/H+2.2/List.action</result>
+	<result type="redirect">/h/List.action</result>
+	</action>
+	<action name="View" class="controller.BlogAction" method="load">
+	<result>/h/article.jsp</result>
 	</action>
 </package>
 </struts>

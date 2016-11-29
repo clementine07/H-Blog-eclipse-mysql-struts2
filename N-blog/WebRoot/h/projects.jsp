@@ -33,7 +33,7 @@
                     <div class="ibox-title">
                         <h5>所有博客</h5>
                         <div class="ibox-tools">
-                            <a href="projects.html" class="btn btn-primary btn-xs">创建新博客</a>
+                            <a href="form_markdown.jsp" class="btn btn-primary btn-xs">创建新博客</a>
                         </div>
                     </div>
                     <div class="ibox-content">

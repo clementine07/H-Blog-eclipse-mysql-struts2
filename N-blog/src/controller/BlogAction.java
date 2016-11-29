@@ -4,7 +4,6 @@ import dao.BlogDAO;
 import model.Blog;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class BlogAction extends ActionSupport {
 	private String id;
 	Blog blog;

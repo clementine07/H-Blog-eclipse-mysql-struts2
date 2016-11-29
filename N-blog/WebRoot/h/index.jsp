@@ -91,7 +91,7 @@
                                     </li>
                                     <li><a class="J_menuItem" href="article.jsp">文章详情</a>
                                     </li>
-                                    <li><a class="J_menuItem" href="table_data_tables.jsp">管理博客</a>
+                                    <li><a class="J_menuItem" href="List">管理博客</a>
                             		</li>
                             		<li><a class="J_menuItem" href="form_markdown.jsp">写新文章</a>
                                     </li>
@@ -484,7 +484,7 @@
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="projects.jsp?v=4.0" frameborder="0" data-id="index_v1.jsp" seamless></iframe>
             </div>
             <div class="footer">
-                <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
+                <div class="pull-right">&copy; 2015-2016 <a href="index.jsp" target="_blank">H+ blog</a>
                 </div>
             </div>
         </div>
@@ -806,7 +806,7 @@
         </div>
         <!--右侧边栏结束-->
         <!--mini聊天窗口开始-->
-        <div class="small-chat-box fadeInRight animated">
+       <%--  <div class="small-chat-box fadeInRight animated">
 
             <div class="heading" draggable="true">
                 <small class="chat-date pull-right">
@@ -896,7 +896,7 @@
                 <i class="fa fa-comments"></i>
 
             </a>
-        </div>
+        </div> --%>
         <!--mini聊天窗口结束-->
     </div>
 
