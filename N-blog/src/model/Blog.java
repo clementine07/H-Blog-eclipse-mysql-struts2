@@ -11,11 +11,11 @@ public class Blog {
 	public Blog(){
 		
 	}
-	public Blog(String id,String time,String data ,String title,int read,int comment ,String label){
+	public Blog(String id,String title,String time,String data ,int read,int comment ,String label){
 		this.id = id;
+		this.title = title;
 		this.time = time;
 		this.data = data;
-		this.title = title;
 		this.read = read;
 		this.comment = comment;
 		this.label = label;

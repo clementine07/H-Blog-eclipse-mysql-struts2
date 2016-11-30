@@ -20,11 +20,11 @@ public class BlogDAO {
 			{
 				Blog p = new Blog();
 				p.setId(rs.getString("id"));
-				p.setTime(rs.getString("time"));	
-				p.setData(rs.getString("data"));	
 				p.setTitle(rs.getString("title"));
-				p.setRead(rs.getInt("read"));
-				p.setComment(rs.getInt("comment"));
+				p.setTime(rs.getString("time"));	
+				p.setData(rs.getString("data"));
+				/*p.setRead(rs.getInt("read"));
+				p.setComment(rs.getInt("comment"));*/
 				p.setLabel(rs.getString("label"));
 				Blogs.add(p);
 			}
@@ -65,13 +65,17 @@ public class BlogDAO {
 		
 		try
 		{
-			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (title,time,data,read,comment,label) VALUE (?,?,?,?,?,?)");			
+			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (title,time,data,label) VALUE (?,?,?,?)");
+			/*ps.setString(1, blog.getId());
+			ps.setString(2, blog.getTitle());
+			ps.setString(3, blog.getTime());
+			ps.setString(4, blog.getData());
+			ps.setString(5, blog.getLabel());*/
+			
 			ps.setString(1, blog.getTitle());
 			ps.setString(2, blog.getTime());
 			ps.setString(3, blog.getData());
-			ps.setInt(4, blog.getRead());
-			ps.setInt(5, blog.getComment());
-			ps.setString(6, blog.getLabel());
+			ps.setString(4, blog.getLabel());
 			result = ps.executeUpdate();
 			
 		}
@@ -82,6 +86,30 @@ public class BlogDAO {
 		
 		return result;
 	}
+	/*public int addBlog(Blog blog)
+	{
+		int result = 0;
+		Connection con = db.MyConnection.getConnection();
+		
+		try
+		{
+			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (id,title,time,data,read,comment,label) VALUE (?,?,?,?,?,?,?)");			
+			ps.setString(1, blog.getId());
+			ps.setString(2, blog.getTitle());
+			ps.setString(3, blog.getTime());
+			ps.setString(4, blog.getData());
+			ps.setInt(5, blog.getRead());
+			ps.setInt(6, blog.getComment());
+			ps.setString(7, blog.getLabel());
+			result = ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return result;
+	}*/
 	/*修改指定ID的博客信息，不可以修改ID*/
 	public int editBlog(Blog blog)
 	{
@@ -207,16 +235,22 @@ public class BlogDAO {
 		
 		
 		//模糊查询测试
-		BlogDAO blogDAO = new BlogDAO();
+		/*BlogDAO blogDAO = new BlogDAO();
 		String Name ="zzz";
 		ArrayList <Blog> blogs =blogDAO.queryByLike(Name);
 		System.out.println(blogs);
-		
+		*/
 		//测试修改blog 成功
 		/*BlogDAO blogDAO = new BlogDAO();
 		Blog blog =new Blog("5","1996/7/20","3","4");
 		int a = blogDAO.editBlog(blog);
 		System.out.println(a);*/
+		//增加
+		BlogDAO blogDAO = new BlogDAO();
+		Blog blog =new Blog("9","标题","1996/7/20","内容",0,0,"标签");
+		int a = blogDAO.addBlog(blog);
+		System.out.println(a);
+		
 	}
 
 }

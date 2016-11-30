@@ -117,11 +117,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标题</label>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="blog.title" class="form-control" name="blog.title" >
+                                    <input type="text" placeholder="blog.title" class="form-control" name="blog.title" value="%{blog.title}">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">
+                            <div class="form-group">                                                                                                                                                                                                                                                                                                                            
                                 <label class="col-sm-2 control-label">时间</label>
                                 <div class="col-sm-10">
                                     <input type="text"  class="form-control" name="blog.time" >

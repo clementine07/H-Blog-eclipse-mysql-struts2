@@ -34,7 +34,7 @@
                 <div class="ibox">
                     <div class="ibox-content">
                         <div class="pull-right">
-                            <button class="btn btn-white btn-xs" type="button" value="blog.label"></button>
+                            <button class="btn btn-white btn-xs" type="button" value="%{blog.label}"></button>
                             <button class="btn btn-white btn-xs" type="button" value="blog.read"></button>
                             <button class="btn btn-white btn-xs" type="button" value="blog.comment"></button>
                            
