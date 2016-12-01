@@ -360,9 +360,9 @@
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" method="post" action="search_results.jsp">
+                        <form role="search" class="navbar-form-custom" method="post" action="index">
                             <div class="form-group">
-                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                                <input type="text" placeholder="请输入您需要查找的博主 …" class="form-control" name="searchname" id="top-search">
                             </div>
                         </form>
                     </div>
@@ -512,8 +512,10 @@
                 <!-- <a href="login.jsp" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a> -->
             </div>
             <div class="row J_mainContent" id="content-main">
-            <!-- 在这里改首页 -->
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="List2" frameborder="0" data-id="index_v1.jsp" seamless></iframe>
+            <!-- 在这里改首页转向地址 -->
+               <%--  <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="List2?searchname=${sessionScope.LoginUserName }" frameborder="0" data-id="index_v1.jsp" seamless></iframe> --%>
+            	<iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index?searchname=${sessionScope.LoginUserName }" frameborder="0" data-id="index_v1.jsp" seamless></iframe>
+            
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2015-2016 <a href="index.jsp" target="_blank">H+ blog</a>

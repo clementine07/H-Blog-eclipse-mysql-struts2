@@ -20,6 +20,7 @@
 	<result name="register_failure">/h/register.jsp</result>
 	</action>
 </package>
+<!--博客的增删改查 -->
 <package name="CRUDDEMO" namespace="/"  extends="struts-default">
 	<action name="List" class="controller.BlogAction" method="list">
 	<result >/h/table_data_tables.jsp</result>
@@ -46,6 +47,7 @@
 	<result>/h/article.jsp</result>
 	</action>
 </package>
+
 <package name="search_url" namespace="/"  extends="struts-default">
 	<action name="index" class="controller.UserAction" method="index">
 	<result name="index_success" >/h/search_index.jsp</result>

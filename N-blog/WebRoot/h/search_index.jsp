@@ -8,6 +8,27 @@
 <title></title>
 </head>
 <body>
+<%-- <%
+				if(request.getSession().getAttribute("loginUserName")==null && request.getSession().getAttribute("SearchUserName")!=null)
+				{
+					%>				
+					<script>window.location.href='List2?searchname=${sessionScope.SearchUserName }';</script> 
+					<% 
+						
+				}
+				if(request.getSession().getAttribute("loginUserName")!=null && request.getSession().getAttribute("SearchUserName")!=null)
+				{
+					%>
+					<script>window.location.href='List2?searchname=${sessionScope.SearchUserName}';</script>
+					<% 
+				}
+				else
+				{
+				%>	
+				<script>window.location.href='List2';</script>
+				<% 
+				}				
+				%> --%>
 <!--直接跳转  -->
 <script>window.location.href='List2?searchname=${sessionScope.SearchUserName }';</script> 
 </body>

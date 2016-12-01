@@ -68,6 +68,9 @@
                                             <small>创建于 <s:property value="time" /></small>
                                         </td>
                                         <td class="project-completion">
+                                                <Strong>作者： <s:property value="username" /></Strong>                                            
+                                        </td>
+                                        <td class="project-completion">
                                                 <small>阅读： <s:property value="read" /></small>
                                                 <div class="progress progress-mini">                                                   
                                                 <div style='width: <s:property value="read" />%;' class="progress-bar"></div>

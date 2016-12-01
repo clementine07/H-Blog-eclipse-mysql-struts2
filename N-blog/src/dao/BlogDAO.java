@@ -244,6 +244,7 @@ public class BlogDAO {
 						p.setLabel(rs.getString("label"));
 						p.setRead(rs.getInt("read"));
 						p.setComment(rs.getInt("comment"));
+						p.setUsername(rs.getString("username"));
 						blogs.add(p);
 					}
 				}
