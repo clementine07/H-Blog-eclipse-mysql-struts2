@@ -71,11 +71,9 @@
                             <s:iterator value="blogs">
                                 <tr class="gradeX">
                                     <td><s:property value="title" /></td>
-                                    <td><s:property value="time" /></td>
-                                    <td>0</td>
-                                     <td>0</td>
-                                    <%-- <td><s:property value="read" /></td>
-                                    <td><s:property value="comment" /></td>   --%>                         
+                                    <td><s:property value="time" /></td>                                    
+                                    <td><s:property value="read" /></td>
+                                    <td><s:property value="comment" /></td>                           
                                     <td class="center">
                                     <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>'>Edit</a>
 									&nbsp;

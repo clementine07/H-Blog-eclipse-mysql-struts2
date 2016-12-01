@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title>H+ 后台主题UI框架 - 主页</title>
+    <title>H+ 个人博客系统 - 主页</title>
 
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
@@ -86,7 +86,7 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="projects.jsp">文章列表1</a>
+                            <li><a class="J_menuItem" href="List2">文章列表1</a>
                                     <li><a class="J_menuItem" href="blog.jsp">文章列表2</a>
                                     </li>
                                     <li><a class="J_menuItem" href="article.jsp">文章详情</a>
@@ -442,9 +442,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="hidden-xs">
+                        <!-- <li class="hidden-xs">
                             <a href="index_v1.jsp" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 购买</a>
-                        </li>
+                        </li> -->
                         <li class="dropdown hidden-xs">
                             <a class="right-sidebar-toggle" aria-expanded="false">
                                 <i class="fa fa-tasks"></i> 主题
@@ -481,7 +481,7 @@
             </div>
             <div class="row J_mainContent" id="content-main">
             <!-- 在这里改首页 -->
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="projects.jsp?v=4.0" frameborder="0" data-id="index_v1.jsp" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="List2" frameborder="0" data-id="index_v1.jsp" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2015-2016 <a href="index.jsp" target="_blank">H+ blog</a>
@@ -504,10 +504,10 @@
                         通知
                     </a>
                     </li>
-                    <li><a data-toggle="tab" href="#tab-3">
+          <!--           <li><a data-toggle="tab" href="#tab-3">
                         项目进度
                     </a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <div class="tab-content">

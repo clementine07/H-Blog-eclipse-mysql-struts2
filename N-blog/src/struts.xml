@@ -24,6 +24,9 @@
 	<action name="List" class="controller.BlogAction" method="list">
 	<result >/h/table_data_tables.jsp</result>
 	</action>
+	<action name="List2" class="controller.BlogAction" method="list">
+	<result >/h/projects.jsp</result>
+	</action>
 	<!-- <action name="Search" class="controller.BlogAction" method="search">
 	<result >/frontstage/blog/search.jsp</result>
 	</action> -->

@@ -52,281 +52,43 @@
                         <div class="project-list">
 
                             <table class="table table-hover">
+                            
                                 <tbody>
+                                <s:iterator value="blogs">
                                     <tr>
                                         <td class="project-status">
-                                            <span class="label label-primary">进行中
+                                            <span class="label label-primary"><s:property value="label" /> 
                                         </td>
                                         <td class="project-title">
-                                            <a href="article.html">LIKE－一款能够让用户快速获得认同感的兴趣社交应用</a>
+                                           <a  href='<s:url  action="View"><s:param  name="id"
+											value="id" /></s:url>'>
+											<s:property value="title" />
+											</a>
                                             <br/>
-                                            <small>创建于 2014.08.15</small>
+                                            <small>创建于 <s:property value="time" /></small>
                                         </td>
                                         <td class="project-completion">
-                                                <small>当前进度： 48%</small>
-                                                <div class="progress progress-mini">
-                                                    <div style="width: 48%;" class="progress-bar"></div>
-                                                </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a1.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a2.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a4.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a5.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">米莫说｜MiMO Show</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 28%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 28%;" class="progress-bar"></div>
+                                                <small>阅读： <s:property value="read" /></small>
+                                                <div class="progress progress-mini">                                                   
+                                                <div style='width: <s:property value="read" />%;' class="progress-bar"></div>
                                             </div>
                                         </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a7.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a6.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-default">已取消
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">商家与购物用户的交互试衣应用</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
                                         <td class="project-completion">
-                                            <small>当前进度： 8%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 8%;" class="progress-bar"></div>
+                                                <small>评论： <s:property value="comment" /></small>
+                                                <div class="progress progress-mini">                                                   
+                                                <div style='width: <s:property value="comment" />%;' class="progress-bar"></div>
                                             </div>
                                         </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a5.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
+                                        <td class="project-actions">                                           
+                                           <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
+                                           <i class="fa fa-pencil"></i> 编辑 </a>   
+                                            <a  href='<s:url  action="Remove"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
+                                            <i class="fa fa-folder"></i> 删除 </a>                                         
                                         </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">天狼---智能硬件博客</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 83%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 83%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a2.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a1.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a7.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">乐活未来</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 97%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 97%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a4.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">【私人医生博客】</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 48%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 48%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a1.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a2.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a4.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a5.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">快狗家居</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 28%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 28%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a7.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a6.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-default">已取消
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">线下超市+线上商城+物流配送互联系统</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 8%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 8%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a5.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">P司机汽车省钱专家</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 83%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 83%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a2.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a1.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">左左 靠谱男同交友</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 97%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 97%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a4.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="project-status">
-                                            <span class="label label-primary">进行中
-                                        </td>
-                                        <td class="project-title">
-                                            <a href="project_detail.html">程序员私活圈</a>
-                                            <br/>
-                                            <small>创建于 2014.08.15</small>
-                                        </td>
-                                        <td class="project-completion">
-                                            <small>当前进度： 28%</small>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 28%;" class="progress-bar"></div>
-                                            </div>
-                                        </td>
-                                        <td class="project-people">
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a7.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a6.jpg"></a>
-                                            <a href="projects.html"><img alt="image" class="img-circle" src="img/a3.jpg"></a>
-                                        </td>
-                                        <td class="project-actions">
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
-                                        </td>
-                                    </tr>
+                                    </tr>                                                                       
+                                    </s:iterator>                                  
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>

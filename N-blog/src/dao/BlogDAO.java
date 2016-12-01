@@ -23,8 +23,8 @@ public class BlogDAO {
 				p.setTitle(rs.getString("title"));
 				p.setTime(rs.getString("time"));	
 				p.setData(rs.getString("data"));
-				/*p.setRead(rs.getInt("read"));
-				p.setComment(rs.getInt("comment"));*/
+				p.setRead(rs.getInt("read"));
+				p.setComment(rs.getInt("comment"));
 				p.setLabel(rs.getString("label"));
 				Blogs.add(p);
 			}
@@ -222,7 +222,7 @@ public class BlogDAO {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//测试获取所有博客内容
-		/*BlogDAO blogDAO = new BlogDAO();
+	/*	BlogDAO blogDAO = new BlogDAO();
 		ArrayList <Blog> getAllBlogs = blogDAO.getAllBlogs();
 		for(int i=0;i < getAllBlogs.size();i++){
 			Blog p = getAllBlogs.get(i);
@@ -230,8 +230,8 @@ public class BlogDAO {
 		}*/
 		
 		//测试根据id获取blog
-	/*	BlogDAO blogDAO = new BlogDAO();
-	 * blogDAO.getBlogById("2");*/
+		BlogDAO blogDAO = new BlogDAO();
+		blogDAO.getBlogById("1");
 		
 		
 		//模糊查询测试
@@ -246,10 +246,10 @@ public class BlogDAO {
 		int a = blogDAO.editBlog(blog);
 		System.out.println(a);*/
 		//增加
-		BlogDAO blogDAO = new BlogDAO();
+		/*BlogDAO blogDAO = new BlogDAO();
 		Blog blog =new Blog("9","标题","1996/7/20","内容",0,0,"标签");
 		int a = blogDAO.addBlog(blog);
-		System.out.println(a);
+		System.out.println(a);*/
 		
 	}
 

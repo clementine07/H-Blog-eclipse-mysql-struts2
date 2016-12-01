@@ -50,8 +50,8 @@
 							     <div class="ibox-content">
 							     <input  type="text" placeholder="Title" class="form-control" name="blog.title" />
 							    <br/>
-                                <!-- <textarea  data-provide="markdown" rows="10" name="blog.data"></textarea> -->
-                                   <s:textarea   data-provide="markdown" rows="10" name="blog.title"  />   
+                                <textarea  data-provide="markdown" rows="10" name="blog.data"></textarea>
+                                   <%-- <s:textarea   data-provide="markdown" rows="10" name="blog.title"  />    --%>
                                    <br/> 
                                 <div class="form-group">
                                 <label class="col-sm-2 control-label">标签</label>

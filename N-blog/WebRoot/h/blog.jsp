@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
@@ -21,8 +24,11 @@
 
 <body class="gray-bg">
     <div class="wrapper wrapper-content  animated fadeInRight blog">
+   
         <div class="row">
+         
             <div class="col-lg-4">
+            
                 <div class="ibox">
                     <div class="ibox-content">
                         <a href="article.html" class="btn-link">
@@ -121,6 +127,7 @@
                     </div>
                 </div>
             </div>
+           
             <div class="col-lg-4">
                 <div class="ibox">
                     <div class="ibox-content">

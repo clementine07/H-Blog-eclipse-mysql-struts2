@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE  html  PUBLIC  "-//W3C//DTD  XHTML  1.0  Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 
 <head>
 
@@ -16,34 +15,34 @@
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
     <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="h/css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="h/css/animate.css" rel="stylesheet">
+    <link href="h/css/style.css?v=4.1.0" rel="stylesheet">
 
 </head>
 
 <body class="gray-bg">
-	<s:if test="null == blog">
-	</s:if>
-	<s:else>
-	
     <div class="wrapper wrapper-content  animated fadeInRight article">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="ibox">
                     <div class="ibox-content">
                         <div class="pull-right">
-                            <button class="btn btn-white btn-xs" type="button" name="blog.label"></button>
-                            <button class="btn btn-white btn-xs" type="button" name="blog.read"></button>
-                            <button class="btn btn-white btn-xs" type="button" name="blog.comment"></button>
-                           
+                            <%-- <button class="btn btn-white btn-xs" type="button"> <s:property value="blog.label" /></button>    --%>                        
+                            <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
+                            <i class="fa fa-pencil"></i> 编辑 </a>   
+                            <a  href='<s:url  action="Remove"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
+                           <i class="fa fa-folder"></i> 删除 </a> 
                         </div>
                         <div class="text-center article-title">
-                        
-                           <h1 class="title"><a href="/"><s:property value="blog.title" /></a></h1>
+                            <h1>
+                                    <s:property value="blog.title" />
+                                </h1>
                         </div>
+                        <p>
                         <s:property value="blog.data" />
+                        </p>
                         <p>
                             在不少旁观者的眼里，智能化几乎成了一种避之唯恐不及的“瘟疫”，开始攀附上大大小小、各式各样的工具和设备，从水杯、灯泡、体重秤这样的小物件，再到冰箱、洗衣机这些生活中的庞然大物。
                         </p>
@@ -206,8 +205,6 @@
         </div>
 
     </div>
-	
-	</s:else>
 
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
