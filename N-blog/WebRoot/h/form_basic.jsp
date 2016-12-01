@@ -23,13 +23,18 @@
 </head>
 
 <body class="gray-bg">
-	<s:if test="null == blog">
+	
     <div class="wrapper wrapper-content animated fadeInRight">   
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
+                    <s:if test="null == blog">
                          <h5>Add Blog </h5>
+                         </s:if>
+    <s:else>
+    <h5>Edit Blog </h5>
+    </s:else>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -48,17 +53,20 @@
                      <form method="get" class="form-horizontal" action="Add" method="post">
                      <%--    <s:form  class="form-horizontal" method="post" >  --%>                                                    
                       <!--  <input type="text" hidden="hidden" class="form-control" name="blog.comment" > -->
+                      <s:hidden name="blog.id"></s:hidden>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标题</label>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.title" >
+                                <s:textfield name="blog.title"  class="form-control" />
+                           <!--          <input type="text" placeholder="" class="form-control" name="blog.title" > -->
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">时间</label>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.time" >
+                                <s:textfield name="blog.time" />
+                                  <!--   <input type="text" placeholder="" class="form-control" name="blog.<s:textfield name="blog.title" />" > -->
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -88,8 +96,7 @@
             </div>
         </div>
     </div>
-    </s:if>
-    <s:else>
+    
     <div class="wrapper wrapper-content animated fadeInRight">   
         <div class="row">
             <div class="col-sm-12">
@@ -117,7 +124,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标题</label>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="blog.title" class="form-control" name="blog.title" value="%{blog.title}">
+                                    <input type="text" placeholder="" class="form-control" name="blog.title" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -138,7 +145,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标签</label>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="blog.label" class="form-control" name="blog.label" >
+                                    <input type="text" placeholder="" class="form-control" name="blog.label" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>                     
@@ -154,7 +161,7 @@
             </div>
         </div>
     </div>
-    </s:else>
+    
     
   <%--   </s:if>
 <s:else>

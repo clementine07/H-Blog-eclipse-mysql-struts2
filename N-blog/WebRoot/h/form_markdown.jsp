@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"  %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE  html  PUBLIC  "-//W3C//DTD  XHTML  1.0  Transitional//EN">
 <html>
 
 <head>
-    <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H+博客 - Bootstrap3 Markdown编辑器</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
@@ -48,12 +49,15 @@
                                <div class="form-group">				   
 							     <div class="ibox-content">
 							     <input  type="text" placeholder="Title" class="form-control" name="blog.title" />
-                                <textarea  data-provide="markdown" rows="10" name="blog.data"></textarea>
-                                      
+							    <br/>
+                                <!-- <textarea  data-provide="markdown" rows="10" name="blog.data"></textarea> -->
+                                   <s:textarea   data-provide="markdown" rows="10" name="blog.title"  />   
+                                   <br/> 
                                 <div class="form-group">
                                 <label class="col-sm-2 control-label">标签</label>
                                 <div class="col-sm-10">
                                     <input type="text" placeholder="" class="form-control" name="blog.label" >
+                                   <%--  <s:textfield  class="form-control" name="blog.label"  /> --%>
                                 </div>
                             </div>
                             <hr/>
@@ -61,27 +65,7 @@
                         	<script>
 							 var now = new Date(); 
 							 time.value=now.getFullYear() + "/"+ (now.getMonth()+1)+"/"+now.getDate()+" "+now.getHours()+":"+now.getMinutes(); 
-							 </script>             
-                            
-                            
-                                    
-                              
-                            
-                          <%--  <div class="form-group">
-                                <label class="col-sm-2 control-label">时间</label>
-                                <div class="col-sm-10">
-                                   
-                                    <input type="text"   placeholder="" class="form-control" name="blog.time">  <!-- id="time"  > -->
-                                
-							        <script>
-							        var now = new Date(); 
-							        time.value=now.getFullYear() + "/"+ (now.getMonth()+1)+"/"+now.getDate(); 
-							        </script>
-                                    <!-- <input type="hidden" class="form-control" name="blog.comment" value="0" >
-                                    <input type="hidden" class="form-control" name="blog.read" value="0" > -->
-                                </div>        
-                           </div> --%>
-                           
+							 </script>                
                                 <div class="checkbox i-checks">
                                         <label>
                                             <input type="checkbox" value=""> <i></i> Publish</label>

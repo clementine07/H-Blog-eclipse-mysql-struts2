@@ -34,14 +34,16 @@
                 <div class="ibox">
                     <div class="ibox-content">
                         <div class="pull-right">
-                            <button class="btn btn-white btn-xs" type="button" value="%{blog.label}"></button>
-                            <button class="btn btn-white btn-xs" type="button" value="blog.read"></button>
-                            <button class="btn btn-white btn-xs" type="button" value="blog.comment"></button>
+                            <button class="btn btn-white btn-xs" type="button" name="blog.label"></button>
+                            <button class="btn btn-white btn-xs" type="button" name="blog.read"></button>
+                            <button class="btn btn-white btn-xs" type="button" name="blog.comment"></button>
                            
                         </div>
                         <div class="text-center article-title">
-                           <h1 class="title"><a href="/"><s:property value="title" /></a></h1>
+                        
+                           <h1 class="title"><a href="/"><s:property value="blog.title" /></a></h1>
                         </div>
+                        <s:property value="blog.data" />
                         <p>
                             在不少旁观者的眼里，智能化几乎成了一种避之唯恐不及的“瘟疫”，开始攀附上大大小小、各式各样的工具和设备，从水杯、灯泡、体重秤这样的小物件，再到冰箱、洗衣机这些生活中的庞然大物。
                         </p>
