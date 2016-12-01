@@ -87,12 +87,16 @@ public class BlogAction extends ActionSupport {
 		blogDAO.editBlog(blog);
 		return SUCCESS;
 	}
+	public String index(){
+		blogs= blogDAO.queryByName(searchname);
+		System.out.println(blogs);
+		System.out.println(searchname);
+		return SUCCESS;		
+	}
 	  public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//测试list方法
 		BlogAction action = new BlogAction();
-	/*	action.list();*/
-		String searchname ="缓缓";
 		action.search();
 	}
 

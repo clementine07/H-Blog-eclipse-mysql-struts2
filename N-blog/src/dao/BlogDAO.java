@@ -26,6 +26,8 @@ public class BlogDAO {
 				p.setRead(rs.getInt("read"));
 				p.setComment(rs.getInt("comment"));
 				p.setLabel(rs.getString("label"));
+				p.setUsername(rs.getString("username"));
+				p.setStauts(rs.getInt("status"));
 				Blogs.add(p);
 			}
 		}
@@ -219,10 +221,43 @@ public class BlogDAO {
 				}
 			return p;	
 			}
+	//根据所要查看的用户名，来筛选出相对应的Blog
+			public ArrayList <Blog> queryByName(String Name)
+			{
+				ArrayList <Blog> blogs = new ArrayList<Blog>(); // 商品集合
+				Connection con = db.MyConnection.getConnection();
+				Statement sql;
+				Blog p;
+				try
+				{
+					PreparedStatement ps = con.prepareStatement("SELECT * FROM blogs WHERE username=? AND status=0");
+					/*ps.setInt(1, 0); */
+					ps.setString(1, Name); 
+					ResultSet rs = ps.executeQuery();
+					while(rs.next())
+					{
+						p=new Blog();
+						p.setId(rs.getString("id"));
+						p.setTime(rs.getString("time"));	
+						p.setData(rs.getString("data"));	
+						p.setTitle(rs.getString("title"));
+						p.setLabel(rs.getString("label"));
+						p.setRead(rs.getInt("read"));
+						p.setComment(rs.getInt("comment"));
+						blogs.add(p);
+					}
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			return blogs;
+			}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//测试获取所有博客内容
-	/*	BlogDAO blogDAO = new BlogDAO();
+		/*BlogDAO blogDAO = new BlogDAO();
 		ArrayList <Blog> getAllBlogs = blogDAO.getAllBlogs();
 		for(int i=0;i < getAllBlogs.size();i++){
 			Blog p = getAllBlogs.get(i);
@@ -230,8 +265,8 @@ public class BlogDAO {
 		}*/
 		
 		//测试根据id获取blog
-		BlogDAO blogDAO = new BlogDAO();
-		blogDAO.getBlogById("1");
+		/*BlogDAO blogDAO = new BlogDAO();
+		blogDAO.getBlogById("1");*/
 		
 		
 		//模糊查询测试
@@ -250,6 +285,12 @@ public class BlogDAO {
 		Blog blog =new Blog("9","标题","1996/7/20","内容",0,0,"标签");
 		int a = blogDAO.addBlog(blog);
 		System.out.println(a);*/
+		
+		//
+		BlogDAO blogDAO = new BlogDAO();
+		String Name ="606060";
+		 ArrayList <Blog> blogs =blogDAO.queryByName(Name);
+		System.out.println(blogs);
 		
 	}
 

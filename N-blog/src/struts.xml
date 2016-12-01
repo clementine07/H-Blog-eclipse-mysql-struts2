@@ -24,7 +24,7 @@
 	<action name="List" class="controller.BlogAction" method="list">
 	<result >/h/table_data_tables.jsp</result>
 	</action>
-	<action name="List2" class="controller.BlogAction" method="list">
+	<action name="List2" class="controller.BlogAction" method="index">
 	<result >/h/projects.jsp</result>
 	</action>
 	<!-- <action name="Search" class="controller.BlogAction" method="search">
@@ -48,8 +48,8 @@
 </package>
 <package name="search_url" namespace="/"  extends="struts-default">
 	<action name="index" class="controller.UserAction" method="index">
-	<result name="index_success" >/h/index.jsp</result>
-	<result name="index_failure">/h/404.jsp</result>
+	<result name="index_success" >/h/search_index.jsp</result>
+	<result name="index_failure">/h/404</result>
 	</action>
 </package>
 </struts>

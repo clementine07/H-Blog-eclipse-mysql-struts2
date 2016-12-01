@@ -8,10 +8,12 @@ public class Blog {
 	private int read;
 	private int comment;
 	private String label;
+	private String username;
+	private int stauts;
 	public Blog(){
 		
 	}
-	public Blog(String id,String title,String time,String data ,int read,int comment ,String label){
+	public Blog(String id,String title,String time,String data ,int read,int comment ,String label,String username, int stauts){
 		this.id = id;
 		this.title = title;
 		this.time = time;
@@ -19,6 +21,8 @@ public class Blog {
 		this.read = read;
 		this.comment = comment;
 		this.label = label;
+		this.username =username;
+		this.stauts = stauts;
 	}
 	public String getId() {
 		return id;
@@ -69,6 +73,18 @@ public class Blog {
 	}
 	public void setLabel(String label) {
 		this.label = label;
+	}	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public int getStauts() {
+		return stauts;
+	}
+	public void setStauts(int stauts) {
+		this.stauts = stauts;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
