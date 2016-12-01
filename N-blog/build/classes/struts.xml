@@ -46,5 +46,11 @@
 	<result>/h/article.jsp</result>
 	</action>
 </package>
+<package name="search_url" namespace="/"  extends="struts-default">
+	<action name="index" class="controller.UserAction" method="index">
+	<result name="index_success" >/h/index.jsp</result>
+	<result name="index_failure">/h/404.jsp</result>
+	</action>
+</package>
 </struts>
 <!-- type ="redirect可以重定向 -->

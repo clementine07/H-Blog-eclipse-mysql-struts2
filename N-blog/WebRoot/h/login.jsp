@@ -42,7 +42,7 @@
             </div>
             <div class="col-sm-5">
             <!--提交数据表单  -->
-                <form name="loginForm" action="User" method="post">
+                <form name="loginForm" action="User" method="get">
                     <h4 class="no-margins">登录：</h4>
                     <p class="m-t-md">登录到H+Blog</p>
                     <input type="text" class="form-control uname" placeholder="用户名"  name="username" /><!--  name="username" 提交数据-->

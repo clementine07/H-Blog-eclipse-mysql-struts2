@@ -14,9 +14,9 @@ public class UserAction extends SuperAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String username;
-	private String password;
-	
+	private String username; //登录验证用户名
+	private String password;//登录验证密码
+	private String id;//主页索引_用户名
 	public String getUsername() {
 		return username;
 	}
@@ -28,8 +28,13 @@ public class UserAction extends SuperAction {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}	
+	public String getId() {
+		return id;
 	}
-
+	public void setId(String id) {
+		this.id = id;
+	}
 	@Override
 	public String execute() throws Exception {
 		//用模型层判断用户名、密码是否正确
@@ -69,5 +74,25 @@ public class UserAction extends SuperAction {
 			session.removeAttribute("loginUserName");
 		}
 		return "logout_success";
+	}
+	
+	//查找相应的博客
+	public String index(){
+		if(username == null ){		
+			return "index_failure";
+		}
+		else{
+			UserDAO model = new UserDAO();
+			boolean result = model.getUserByUsername(username);
+			//如果存在此用户名，则跳转到相应的主页
+			if(result== true){
+				//在sesiion中保存登录成功
+				session.setAttribute("SearchUserName",username);
+				return "index_success";
+			}else{
+				//添加错误提示信息				
+				return "index_failure";
+			}
+		}
 	}
 }

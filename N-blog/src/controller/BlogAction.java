@@ -1,7 +1,12 @@
 package controller;
 import java.util.ArrayList;
+import java.util.Map;
+
 import dao.BlogDAO;
+import dao.UserDAO;
 import model.Blog;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BlogAction extends ActionSupport {
