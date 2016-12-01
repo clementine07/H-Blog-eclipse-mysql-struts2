@@ -36,7 +36,7 @@
                             <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+                               <span class="block m-t-xs"><strong class="font-bold">${sessionScope.loginUserName } </strong></span>
                                 <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
                                 </span>
                             </a>
@@ -477,7 +477,39 @@
                         </li>
                     </ul>
                 </div>
-                <a href="login.jsp" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+               <%
+				if(request.getSession().getAttribute("loginUserName")!=null)
+				{
+					%>
+					<%-- <a href="userhomepage.jsp">用户:</a>
+					<a href="userhomepage.jsp"><%= request.getSession().getAttribute("loginUserName")%></a>	 --%>
+					<% 
+					%>				
+					<a href="#" class="roll-nav roll-right J_tabExit" onClick="quit()" ><i class="fa fa fa-sign-out" onClick="quit()"></i> 退出</a>
+					<script type="text/javascript">
+					function quit(){
+						var mymessage= confirm("确定要退出吗")        ;
+					    if(mymessage==true)
+					    {
+					    	 window.location.href="exit.jsp";  
+					    
+					    }
+				  
+					}
+					</script>
+					<% 
+						
+				}
+				else
+				{
+					%>
+					<a href="login.jsp" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 登录</a>
+					<!-- <a href="register.jsp">[免费注册]</a> -->
+					<% 
+				}
+				
+				%>
+                <!-- <a href="login.jsp" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a> -->
             </div>
             <div class="row J_mainContent" id="content-main">
             <!-- 在这里改首页 -->

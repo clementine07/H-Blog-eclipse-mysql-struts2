@@ -124,7 +124,7 @@
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
-                                            <img alt="image" src="img/a1.jpg">
+                                            <img alt="image" src="h/img/a1.jpg">
                                         </a>
                                         <div class="media-body">
                                             <a href="#">
@@ -142,7 +142,7 @@
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
-                                            <img alt="image" src="img/a2.jpg">
+                                            <img alt="image" src="h/img/a2.jpg">
                                         </a>
                                         <div class="media-body">
                                             <a href="#">
@@ -160,7 +160,7 @@
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
-                                            <img alt="image" src="img/a3.jpg">
+                                            <img alt="image" src="h/img/a3.jpg">
                                         </a>
                                         <div class="media-body">
                                             <a href="#">
@@ -178,7 +178,7 @@
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
-                                            <img alt="image" src="img/a5.jpg">
+                                            <img alt="image" src="h/img/a5.jpg">
                                         </a>
                                         <div class="media-body">
                                             <a href="#">
@@ -197,8 +197,37 @@
 
                             </div>
                         </div>
+						<div class="hr-line-dashed"></div>	
+						<div class="row">
+                            <div class="col-lg-12">
+
+                                <h2>发表评论：</h2>
+                                
+                                <form method="get" class="form-horizontal" action="#" method="post">
+                     
+                      <s:hidden name="blog.id"></s:hidden>                                                       
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户名：</label>
+                                <div class="col-sm-10">     
+                                 <textarea id="ccomment" name="comment" class="form-control" required="" aria-required="true"></textarea>                           
+                             
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>                                              
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">发表</button>
+                                    <button class="btn btn-white" type="submit">取消</button>
+                                </div>
+                            </div>
+                        </form>
+                                  
+                                
+                                </div>
 
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
