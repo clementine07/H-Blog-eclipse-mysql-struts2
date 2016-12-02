@@ -57,7 +57,12 @@ public class UserAction extends SuperAction {
 				Map<String,Object> request = ac.getParameters();
 				request.put("name", username);
 				//在sesiion中保存登录成功
+				session.removeAttribute("loginUserName");//先清除，后添加
 				session.setAttribute("loginUserName",username);
+				if(session.getAttribute("searchUserName")==null)//登录时，若searchname==null,默认设置searchname=username 返回index.jsp
+				{
+					session.setAttribute("searchUserName",username);
+				}
 				return "login_success";
 			}else{
 				//添加错误提示信息
@@ -87,7 +92,8 @@ public class UserAction extends SuperAction {
 			//如果存在此用户名，则跳转到相应的主页
 			if(result== true){
 				//在sesiion中保存登录成功
-				session.setAttribute("SearchUserName",searchname);
+				session.removeAttribute("searchUserName");//先清除，后添加
+				session.setAttribute("searchUserName",searchname);
 				return "index_success";
 			}else{
 				//添加错误提示信息				

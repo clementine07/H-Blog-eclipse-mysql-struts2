@@ -50,7 +50,7 @@
 
 <package name="search_url" namespace="/"  extends="struts-default">
 	<action name="index" class="controller.UserAction" method="index">
-	<result name="index_success" >/h/search_index.jsp</result>
+	<result name="index_success" >/h/index.jsp</result>
 	<result name="index_failure">/h/404</result>
 	</action>
 </package>

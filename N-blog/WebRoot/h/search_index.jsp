@@ -8,18 +8,35 @@
 <title></title>
 </head>
 <body>
-<%-- <%
-				if(request.getSession().getAttribute("loginUserName")==null && request.getSession().getAttribute("SearchUserName")!=null)
+<%
+				//未登录时，访问index.jsp自动跳转到login.jsp
+				if(request.getSession().getAttribute("loginUserName")==null && request.getSession().getAttribute("searchUserName")==null)
 				{
 					%>				
-					<script>window.location.href='List2?searchname=${sessionScope.SearchUserName }';</script> 
+					<script>window.location.href='404';</script> 
 					<% 
 						
 				}
-				if(request.getSession().getAttribute("loginUserName")!=null && request.getSession().getAttribute("SearchUserName")!=null)
+				//登录时，没有search_name返回search_data
+				if(request.getSession().getAttribute("loginUserName")!=null && request.getSession().getAttribute("searchUserName")==null)
 				{
 					%>
-					<script>window.location.href='List2?searchname=${sessionScope.SearchUserName}';</script>
+					<script>window.location.href='List2?searchname=${sessionScope.loginUserName}';</script>
+					<% 
+				}
+				//登录时，根据search_name返回search_data
+				if(request.getSession().getAttribute("loginUserName")!=null && request.getSession().getAttribute("searchUserName")!=null)
+				{
+					%>
+					<script>window.location.href='List2?searchname=${sessionScope.searchUserName}';</script>
+					<% 
+				}
+				//查询自己的时候返回自己
+				if(request.getSession().getAttribute("loginUserName")!=null && request.getSession().getAttribute("searchUserName")!=null
+						&&request.getSession().getAttribute("loginUserName")==request.getSession().getAttribute("searchUserName"))
+				{
+					%>
+					<script>window.location.href='List2?searchname=${sessionScope.loginUserName}';</script>
 					<% 
 				}
 				else
@@ -28,8 +45,8 @@
 				<script>window.location.href='List2';</script>
 				<% 
 				}				
-				%> --%>
+				%>
 <!--直接跳转  -->
-<script>window.location.href='List2?searchname=${sessionScope.SearchUserName }';</script> 
+<%-- <script>window.location.href='List2?searchname=${sessionScope.searchUserName }';</script>  --%>
 </body>
 </html>

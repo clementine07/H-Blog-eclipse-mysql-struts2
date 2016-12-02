@@ -15,9 +15,11 @@ return false;
 </script> -->
 <body>
      <%
-       session.invalidate();
-       response.sendRedirect("index.jsp");
+       /* session.invalidate(); *///清除所有的session
+       session.removeAttribute("loginUserName");//清除指定的session
+     /*   response.sendRedirect('index?searchname=${sessionScope.searcnUserName}"'); */
        
       %>
+      <script>window.location.href='index?searchname=${sessionScope.searchUserName}';</script>
 </body>
 </html>

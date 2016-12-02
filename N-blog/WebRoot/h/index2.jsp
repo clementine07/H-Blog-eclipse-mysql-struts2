@@ -37,10 +37,10 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">${sessionScope.searchUserName } </strong></span>
-                                <span class="text-muted text-xs block">访问<b class="caret"></b></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
                                 </span>
                             </a>
-                           <!--  <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a class="J_menuItem" href="form_avatar.jsp">修改头像</a>
                                 </li>
                                 <li><a class="J_menuItem" href="profile.jsp">个人资料</a>
@@ -52,7 +52,7 @@
                                 <li class="divider"></li>
                                 <li><a href="login.jsp">安全退出</a>
                                 </li>
-                            </ul> -->
+                            </ul>
                         </div>
                         <div class="logo-element">H+
                         </div>
@@ -457,26 +457,8 @@
 					<% 
 					%>	
 					<li class="hidden-xs">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="J_menuItem">                              
-                                <span class="text-muted text-xs block">${sessionScope.loginUserName}<b class="caret"></b></span>
-                                </span>
-                     </a>									
-					<ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="form_avatar.jsp">修改头像</a>
-                                </li>
-                                <li><a class="J_menuItem" href="profile.jsp">个人资料</a>
-                                </li>
-                                <li><a class="J_menuItem" href="contacts.jsp">联系我们</a>
-                                </li>
-                                <li><a class="J_menuItem" href="mailbox.jsp">信箱</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="login.jsp">安全退出</a>
-                                </li>
-                            </ul>	
-					 </li>	
-						
+					<a href="login.jsp" class="J_menuItem" data-index="0"> ${sessionScope.loginUserName}</a>
+					 </li>			
 					<li class="hidden-xs">
 					<a href="#" class="J_menuItem" data-index="0"> <i class="fa fa fa-sign-out" onClick="quit()" > 退出     </i> </a>
 					 </li>
