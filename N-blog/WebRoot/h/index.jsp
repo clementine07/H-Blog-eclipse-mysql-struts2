@@ -86,14 +86,16 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="List2">文章列表1</a>
+                            <li><a class="J_menuItem" href="List2?searchname=${sessionScope.searchUserName}">文章列表1</a>
                                     <li><a class="J_menuItem" href="blog.jsp">文章列表2</a>
                                     </li>
                                     <li><a class="J_menuItem" href="article.jsp">文章详情</a>
                                     </li>
-                                    <li><a class="J_menuItem" href="List">管理博客</a>
+                                    <li><a class="J_menuItem" href="List?searchname=${sessionScope.loginUserName}">管理博客</a>
                             		</li>
-                            		<li><a class="J_menuItem" href="recycle?searchname=${sessionScope.searchUserName}">回收站</a>
+                            		<li><a class="J_menuItem" href="recycle?searchname=${sessionScope.loginUserName}">回收站</a>
+                            		</li>
+                            		<li><a class="J_menuItem" href="drafts?searchname=${sessionScope.loginUserName}">草稿箱</a>
                             		</li>
                             		<li><a class="J_menuItem" href="form_markdown.jsp">写新文章</a>
                                     </li>

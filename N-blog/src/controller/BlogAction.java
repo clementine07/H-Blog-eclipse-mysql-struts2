@@ -79,8 +79,15 @@ public class BlogAction extends ActionSupport {
 			System.out.println(searchname);
 			return SUCCESS;
 		}
-	//通过id获取单个
+	//通过id获取单个并增加read次数
 	public String load() {
+		System.out.println(id);
+		blogDAO.addreadBlog(id);
+		blog = blogDAO.getBlogById(id);
+		return SUCCESS;
+		}
+	//修改获取视图
+	public String edit() {
 		System.out.println(id);
 		blogDAO.addreadBlog(id);
 		blog = blogDAO.getBlogById(id);
@@ -91,7 +98,7 @@ public class BlogAction extends ActionSupport {
 		blogDAO.addBlog(blog);
 		return SUCCESS;
 		}
-	//修改
+	//修改内容保存
 	public String change(){
 		blogDAO.editBlog(blog);
 		return SUCCESS;
@@ -106,10 +113,15 @@ public class BlogAction extends ActionSupport {
 	//回收站
 	public String recycle(){
 		blogs= blogDAO.queryByRecycle(searchname);
-		System.out.println(blogs);
-		System.out.println(searchname);
+		/*System.out.println(blogs);
+		System.out.println(searchname);*/
 		return SUCCESS;		
 	}
+	//草稿箱
+		public String drafts(){
+			blogs= blogDAO.queryByDrafts(searchname);
+			return SUCCESS;		
+		}
 	//软删除
 		public String softdel(){
 			blogDAO.softdelBlog(id);//先更改stauts=1

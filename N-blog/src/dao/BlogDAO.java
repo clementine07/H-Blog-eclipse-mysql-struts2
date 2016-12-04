@@ -82,19 +82,16 @@ public class BlogDAO {
 	{
 		int result = 0;
 		Connection con = db.MyConnection.getConnection();
-		
 		try
 		{
-			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (title,time,data,label,read_times,comment) VALUE (?,?,?,?,?,?)");
+			PreparedStatement ps = con.prepareStatement("INSERT INTO blogs (title,time,data,label,username,status) VALUE (?,?,?,?,?,?)");
 			ps.setString(1, blog.getTitle());
 			ps.setString(2, blog.getTime());
 			ps.setString(3, blog.getData());
 			ps.setString(4, blog.getLabel());
-			ps.setInt(5, blog.getRead_times());
-			
-			
-			result = ps.executeUpdate();
-			
+			ps.setString(5, blog.getUsername());
+			ps.setInt(6, blog.getStauts());		
+			result = ps.executeUpdate();			
 		}
 		catch(SQLException e)
 		{
@@ -258,6 +255,39 @@ public class BlogDAO {
 				try
 				{
 					PreparedStatement ps = con.prepareStatement("SELECT * FROM blogs WHERE username=? AND status=1");
+					/*ps.setInt(1, 0); */
+					ps.setString(1, Name); 
+					ResultSet rs = ps.executeQuery();
+					while(rs.next())
+					{
+						p=new Blog();
+						p.setId(rs.getString("id"));
+						p.setTime(rs.getString("time"));	
+						p.setData(rs.getString("data"));	
+						p.setTitle(rs.getString("title"));
+						p.setLabel(rs.getString("label"));
+						p.setRead_times(rs.getInt("read_times"));
+						p.setComment(rs.getInt("comment"));
+						p.setUsername(rs.getString("username"));
+						blogs.add(p);
+					}
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			return blogs;
+			}
+			//草稿箱
+			public ArrayList <Blog> queryByDrafts(String Name)
+			{
+				ArrayList <Blog> blogs = new ArrayList<Blog>(); // 商品集合
+				Connection con = db.MyConnection.getConnection();
+				Statement sql;
+				Blog p;
+				try
+				{
+					PreparedStatement ps = con.prepareStatement("SELECT * FROM blogs WHERE username=? AND status=2");
 					/*ps.setInt(1, 0); */
 					ps.setString(1, Name); 
 					ResultSet rs = ps.executeQuery();

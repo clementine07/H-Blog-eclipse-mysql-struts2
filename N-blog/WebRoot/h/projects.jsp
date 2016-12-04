@@ -54,6 +54,8 @@
                             <table class="table table-hover">
                             
                                 <tbody>
+                                
+                                
                                 <s:iterator value="blogs">
                                     <tr>
                                         <td class="project-status">
@@ -82,13 +84,16 @@
                                                 <div style='width: <s:property value="comment" />%;' class="progress-bar"></div>
                                             </div>
                                         </td>
+                                       <%--  <s:if test="username == session.getAttribute('loginUserName')" > --%>
                                         <td class="project-actions">                                           
-                                           <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
+                                           <a  href='<s:url  action="Edit"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
                                            <i class="fa fa-pencil"></i> 编辑 </a>   
                                             <a  href='<s:url  action="soft_delete"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
                                             <i class="fa fa-folder"></i> 删除 </a>                                         
                                         </td>
-                                    </tr>                                                                       
+                                      <%--   </s:if>  --%>
+                                    </tr>     
+                                                                                                     
                                     </s:iterator>                                  
                                     </tbody>
                                     

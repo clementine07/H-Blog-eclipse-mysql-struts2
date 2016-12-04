@@ -70,17 +70,19 @@
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">
+                            <textarea  data-provide="markdown" rows="10" value="<s:property value="blog.data"/>"></textarea>
+                          <%--  <s:textarea  data-provide="markdown" rows=lue"10" name="blog.data"></s:textarea> --%>
+                            <!-- <div class="form-group">
                                 <label class="col-sm-2 control-label">内容</label>
                                 <div class="col-sm-10">
                                     <input type="text" placeholder="" class="form-control" name="blog.data" >
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标签</label>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.label" >
+                                   <s:textfield name="blog.label" />
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>                     
@@ -97,177 +99,6 @@
         </div>
     </div>
     
-    <div class="wrapper wrapper-content animated fadeInRight">   
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                         <h5>Edit Blog </h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">                               
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                     <form method="get" class="form-horizontal" action="Add" method="post">
-                     <%--    <s:form  class="form-horizontal" method="post" >  --%>                                                    
-                      <!--  <input type="text" hidden="hidden" class="form-control" name="blog.comment" > -->
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">标题</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.title" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">                                                                                                                                                                                                                                                                                                                            
-                                <label class="col-sm-2 control-label">时间</label>
-                                <div class="col-sm-10">
-                                    <input type="text"  class="form-control" name="blog.time" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">内容</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="blog.data" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">标签</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.label" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>                     
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">保存内容</button>
-                                    <button class="btn btn-white" type="submit">取消</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-  <%--   </s:if>
-<s:else>
-<!--修改-->
-<div class="wrapper wrapper-content animated fadeInRight">   
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                         <h5>Add Blog </h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">                               
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <s:form action="Add"  class="form-horizontal" method="post" > 
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">标题</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.title" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">时间</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.time" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">阅读</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.read" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">评论</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.comment" >
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>                     
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">保存内容</button>
-                                    <button class="btn btn-white" type="submit">取消</button>
-                                </div>
-                            </div>
-                        </s:form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
- --%>
-   <%--  <div id="modal-form" class="modal fade" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6 b-r">
-                            <h3 class="m-t-none m-b">登录</h3>
-
-                            <p>欢迎登录本站(⊙o⊙)</p>
-
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>用户名：</label>
-                                    <input type="email" placeholder="请输入用户名" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>密码：</label>
-                                    <input type="password" placeholder="请输入密码" class="form-control">
-                                </div>
-                                <div>
-                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>登录</strong>
-                                    </button>
-                                    <label>
-                                        <input type="checkbox" class="i-checks">自动登录</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-6">
-                            <h4>还不是会员？</h4>
-                            <p>您可以注册一个账户</p>
-                            <p class="text-center">
-                                <a href="form_basic.html"><i class="fa fa-sign-in big-icon"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --%>
 
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>

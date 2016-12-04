@@ -22,7 +22,7 @@
 </package>
 <!--博客的增删改查 -->
 <package name="CRUDDEMO" namespace="/"  extends="struts-default">
-	<action name="List" class="controller.BlogAction" method="list">
+	<action name="List" class="controller.BlogAction" method="index">
 	<result >/h/table_data_tables.jsp</result>
 	</action>
 	<action name="List2" class="controller.BlogAction" method="index">
@@ -34,7 +34,8 @@
 	<action  name="Remove" class="controller.BlogAction" method="remove">
 	<result type ="redirect">/h/List.action</result>
 	</action>
-	<action name="Load" class="controller.BlogAction" method="load">
+	<!--edit页面获取 -->
+	<action name="Edit" class="controller.BlogAction" method="edit">
 	<result>/h/form_basic.jsp</result>
 	</action>
 	<action name="Add" class="controller.BlogAction" method="add">
@@ -57,6 +58,10 @@
 	<!--回收站 显示已经软删除的内容  -->
 	<action name="recycle" class="controller.BlogAction" method="recycle">
 	<result>/h/recycle_bin.jsp</result>
+	</action>
+	<!--草稿箱  -->
+	<action name="drafts" class="controller.BlogAction" method="drafts">
+	<result>/h/drafts.jsp</result>
 	</action>
 	<!--软删除  -->
 	 <action name="soft_delete" class="controller.BlogAction" method="softdel">

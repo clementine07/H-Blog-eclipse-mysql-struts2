@@ -44,7 +44,7 @@
                                     </a>
                                 </div>
                             </div>
-                               <form action="Add">
+                               <form action="Change">
                           
                                <div class="form-group">				   
 							     <div class="ibox-content">
@@ -84,21 +84,13 @@
                                         <label>
                                             <input type="radio"   value="2" id="optionsRadios2" name="blog.status">暂存</label>
                                     </div> -->
-                                     <div class="col-sm-10">
+                                  <%--    <div class="col-sm-10">
                                     <select class="form-control m-b" name="blog.status"">
                                         <option value="0">选项 1</option>
-                                        <option value="2">暂存</option>    
+                                        <option value="2">暂存</option>
+                                     
                                     </select>
-                                    <script >
-										function selectchange(){
-										 var select=document.getElementById("status");
-										 if(select.value=="0")  
-										     $('#select_value').val("选项1");
-										 if(select.value=="2")
-										     $('#select_value').val("暂存");
-										}		
-									</script>                                
-                                    </div>
+                                    </div> --%>
                                     <br/>
                              
 							    <button type="submit" class="btn">发布</button>
