@@ -5,7 +5,7 @@ public class Blog {
 	private String title;
 	private String time;
 	private String data;
-	private int read;
+	private int read_times;
 	private int comment;
 	private String label;
 	private String username;
@@ -13,12 +13,12 @@ public class Blog {
 	public Blog(){
 		
 	}
-	public Blog(String id,String title,String time,String data ,int read,int comment ,String label,String username, int stauts){
+	public Blog(String id,String title,String time,String data ,int read_times,int comment ,String label,String username, int stauts){
 		this.id = id;
 		this.title = title;
 		this.time = time;
 		this.data = data;
-		this.read = read;
+		this.read_times = read_times;
 		this.comment = comment;
 		this.label = label;
 		this.username =username;
@@ -55,12 +55,11 @@ public class Blog {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-	public int getRead() {
-		return read;
+	public int getRead_times() {
+		return read_times;
 	}
-	public void setRead(int read) {
-		this.read = read;
+	public void setRead_times(int read_times) {
+		this.read_times = read_times;
 	}
 	public int getComment() {
 		return comment;

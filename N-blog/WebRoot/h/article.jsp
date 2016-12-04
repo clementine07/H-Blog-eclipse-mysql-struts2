@@ -29,7 +29,19 @@
                 <div class="ibox">
                     <div class="ibox-content">
                         <div class="pull-right">
-                            <%-- <button class="btn btn-white btn-xs" type="button"> <s:property value="blog.label" /></button>    --%>                        
+                            <%-- <button class="btn btn-white btn-xs" type="button"> <s:property value="blog.label" /></button>    --%>  
+                            <td class="project-completion">
+                                                <small>阅读： <s:property value="blog.read_times" /></small>
+                                                <div class="progress progress-mini">                                                   
+                                                <div style='width: <s:property value="blog.read_times" />%;' class="progress-bar"></div>
+                                            </div>
+                                        </td>
+                                        <td class="project-completion">
+                                                <small>评论： <s:property value="blog.comment" /></small>
+                                                <div class="progress progress-mini">                                                   
+                                                <div style='width: <s:property value="blog.comment" />%;' class="progress-bar"></div>
+                                            </div>
+                                        </td>                      
                             <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
                             <i class="fa fa-pencil"></i> 编辑 </a>   
                             <a  href='<s:url  action="Remove"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
@@ -121,6 +133,8 @@
                             <div class="col-lg-12">
 
                                 <h2>评论：</h2>
+                                <%-- <s:fielderror/><!-- 显示表单验证的出错信息 --> --%>
+                                <s:iterator value="comments">
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
@@ -128,18 +142,19 @@
                                         </a>
                                         <div class="media-body">
                                             <a href="#">
-                                                    逆光狂胜蔡舞娘
+                                                   <s:property value="from" />
                                                 </a>
-                                            <small class="text-muted">17 小时前</small>
+                                            <small class="text-muted"><s:property value="time" /></small>
                                         </div>
                                     </div>
                                     <div class="social-body">
                                         <p>
-                                            好东西，我朝淘宝准备跟进，1折开卖
+                                           <s:property value="data" />
                                         </p>
                                     </div>
                                 </div>
-                                <div class="social-feed-box">
+                                </s:iterator>  
+                                <%-- <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
                                             <img alt="image" src="h/img/a2.jpg">
@@ -175,6 +190,7 @@
                                         </p>
                                     </div>
                                 </div>
+                                </s:iterator>  
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">
@@ -195,7 +211,7 @@
                                 </div>
 
 
-                            </div>
+                            </div> --%>
                         </div>
 						<div class="hr-line-dashed"></div>	
 						<div class="row">

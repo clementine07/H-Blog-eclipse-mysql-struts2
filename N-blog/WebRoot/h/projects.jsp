@@ -71,9 +71,9 @@
                                                 <Strong>作者： <s:property value="username" /></Strong>                                            
                                         </td>
                                         <td class="project-completion">
-                                                <small>阅读： <s:property value="read" /></small>
+                                                <small>阅读： <s:property value="read_times" /></small>
                                                 <div class="progress progress-mini">                                                   
-                                                <div style='width: <s:property value="read" />%;' class="progress-bar"></div>
+                                                <div style='width: <s:property value="read_times" />%;' class="progress-bar"></div>
                                             </div>
                                         </td>
                                         <td class="project-completion">
@@ -85,7 +85,7 @@
                                         <td class="project-actions">                                           
                                            <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
                                            <i class="fa fa-pencil"></i> 编辑 </a>   
-                                            <a  href='<s:url  action="Remove"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
+                                            <a  href='<s:url  action="soft_delete"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
                                             <i class="fa fa-folder"></i> 删除 </a>                                         
                                         </td>
                                     </tr>                                                                       

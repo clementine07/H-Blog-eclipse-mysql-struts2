@@ -93,6 +93,8 @@
                                     </li>
                                     <li><a class="J_menuItem" href="List">管理博客</a>
                             		</li>
+                            		<li><a class="J_menuItem" href="recycle?searchname=${sessionScope.searchUserName}">回收站</a>
+                            		</li>
                             		<li><a class="J_menuItem" href="form_markdown.jsp">写新文章</a>
                                     </li>
                                     <li><a class="J_menuItem" href="code_editor.jsp">代码编辑器</a>

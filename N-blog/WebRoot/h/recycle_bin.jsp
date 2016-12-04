@@ -70,22 +70,23 @@
                             
                             <s:iterator value="blogs">
                                 <tr class="gradeX">
-                                    <td><s:property value="title" /></td>
+                                   <td> <a  href='<s:url  action="View"><s:param  name="id"
+									value="id" /></s:url>'><s:property value="title" /></a></td>
                                     <td><s:property value="time" /></td>                                    
                                     <td><s:property value="read" /></td>
                                     <td><s:property value="comment" /></td>                           
                                     <td class="center">
-                                    <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>'>Edit</a>
+                                 <%--    <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>'>Edit</a> --%>
 									&nbsp;
-									<a  href='<s:url  action="soft_delete"><s:param  name="id"
+									<a  href='<s:url  action="Remove"><s:param  name="id"
 									value="id" /></s:url>'>
-									删除
+									彻底删除
 									</a>
 									&nbsp;
-									<a  href='<s:url  action="View"><s:param  name="id"
+									<%-- <a  href='<s:url  action="View"><s:param  name="id"
 									value="id" /></s:url>'>
 									查看
-									</a>
+									</a> --%>
                                     </td>                                
                                 </tr>
                              </s:iterator>

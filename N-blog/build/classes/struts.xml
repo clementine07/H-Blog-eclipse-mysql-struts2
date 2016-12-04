@@ -43,15 +43,39 @@
 	<action name="Change" class="controller.BlogAction" method="change">
 	<result type="redirect">/h/List.action</result>
 	</action>
-	<action name="View" class="controller.BlogAction" method="load">
-	<result>/h/article.jsp</result>
+	<!-- 获取博客详情视图，然后chain到viewcomment.action -->
+	<action name="View" class="controller.BlogAction" method="load">  
+	<result type="chain">
+	<param name="actionName">ViewComment
+	</param>
+	</result>
 	</action>
+	<!--获取评论详情  返回文章页面-->
+	<action name="ViewComment" class="controller.CommentAction" method="view_comment">
+	<result >/h/article.jsp</result>
+	</action>
+	<!--回收站 显示已经软删除的内容  -->
+	<action name="recycle" class="controller.BlogAction" method="recycle">
+	<result>/h/recycle_bin.jsp</result>
+	</action>
+	<!--软删除  -->
+	 <action name="soft_delete" class="controller.BlogAction" method="softdel">
+	<result>/h/history_back.jsp</result>
+	</action> 
 </package>
 
 <package name="search_url" namespace="/"  extends="struts-default">
 	<action name="index" class="controller.UserAction" method="index">
 	<result name="index_success" >/h/index.jsp</result>
 	<result name="index_failure">/h/404</result>
+	</action>
+	
+</package>
+<!--Comment相关 -->
+<package name="CommentCRUD" namespace="/"  extends="struts-default">
+	
+	<action name="AddComment" class="controller.CommentAction" method="add">
+	<result type="redirect">/h/View.action</result>
 	</action>
 </package>
 </struts>

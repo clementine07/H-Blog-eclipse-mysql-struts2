@@ -15,6 +15,7 @@ public class BlogAction extends ActionSupport {
 	ArrayList <Blog> blogs; //创建arraylist，存储获取到的数组
 	BlogDAO blogDAO = new BlogDAO();
 	private String searchname;
+	private String softdel;
 	public String getId() {
 		return id;
 	}
@@ -46,6 +47,12 @@ public class BlogAction extends ActionSupport {
 	public void setSearchname(String searchname) {
 		this.searchname = searchname;
 	}
+	public String getSoftdel() {
+		return softdel;
+	}
+	public void setSoftdel(String softdel) {
+		this.softdel = softdel;
+	}
 	//博客列表
 	  public String list()
 	  {        
@@ -54,7 +61,7 @@ public class BlogAction extends ActionSupport {
 		  System.out.println(blogs.get(0).getTime());
 		  return SUCCESS; 
 	  }
-	  //删除博客
+	  //实际删除博客
 	  public String remove() 
 	  {        
 		  blogDAO. deleteBlogById(id); 
@@ -74,6 +81,8 @@ public class BlogAction extends ActionSupport {
 		}
 	//通过id获取单个
 	public String load() {
+		System.out.println(id);
+		blogDAO.addreadBlog(id);
 		blog = blogDAO.getBlogById(id);
 		return SUCCESS;
 		}
@@ -87,17 +96,33 @@ public class BlogAction extends ActionSupport {
 		blogDAO.editBlog(blog);
 		return SUCCESS;
 	}
+	//主页获取
 	public String index(){
 		blogs= blogDAO.queryByName(searchname);
 		System.out.println(blogs);
 		System.out.println(searchname);
 		return SUCCESS;		
 	}
+	//回收站
+	public String recycle(){
+		blogs= blogDAO.queryByRecycle(searchname);
+		System.out.println(blogs);
+		System.out.println(searchname);
+		return SUCCESS;		
+	}
+	//软删除
+		public String softdel(){
+			blogDAO.softdelBlog(id);//先更改stauts=1
+			/*blog = blogDAO.getBlogById(id);//根据id获取blog整条信息
+			softdel=blog.getUsername();//根据blog传出username的值
+*/			return SUCCESS;
+		}
 	  public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//测试list方法
 		BlogAction action = new BlogAction();
-		action.search();
+		String id="4";
+		action.load();
 	}
 
 }

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
 </head>
+<!--如果在js中使用，就是 用el表达式，直接获取  -->
 <body>
 <%
 				//未登录时，访问index.jsp自动跳转到login.jsp
@@ -14,10 +15,17 @@
 				{
 					%>				
 					<script>window.location.href='404';</script> 
+					<% 						
+				}
+				//未登录时，有search_name返回search_data
+				if(request.getSession().getAttribute("loginUserName")==null && request.getSession().getAttribute("searchUserName")!=null)
+				{
+					%>				
+					<script>window.location.href='List2?searchname=${sessionScope.searchUserName}';</script>
 					<% 
 						
 				}
-				//登录时，没有search_name返回search_data
+				//登录时，没有search_name返回login_data
 				if(request.getSession().getAttribute("loginUserName")!=null && request.getSession().getAttribute("searchUserName")==null)
 				{
 					%>
