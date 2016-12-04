@@ -133,7 +133,10 @@
                             <div class="col-lg-12">
 
                                 <h2>评论：</h2>
-                                <%-- <s:fielderror/><!-- 显示表单验证的出错信息 --> --%>
+                                <s:if test="comments==null">
+                                <s:fielderror/><!-- 显示表单验证的出错信息 -->
+                                </s:if>
+                                <s:else>
                                 <s:iterator value="comments">
                                 <div class="social-feed-box">
                                     <div class="social-avatar">
@@ -154,6 +157,7 @@
                                     </div>
                                 </div>
                                 </s:iterator>  
+                                </s:else>
                                 <%-- <div class="social-feed-box">
                                     <div class="social-avatar">
                                         <a href="" class="pull-left">

@@ -44,16 +44,24 @@ public class CommentAction extends ActionSupport {
 	//博客列表
 	  public String view_comment() // action 不能有参数
 	  {        
-		  System.out.println(id);
+		  System.out.println(id); 
 		  comments= commentDAO.getAllComments(id);
-		  System.out.println(comments.get(0).getTime());
+		  if(comments.size()==0)
+		  {
+			  this.addFieldError("CommentError", "暂无评论");
+			  System.out.println("comments.size()==0");
+			  comments=null;
+		  }
+		  else{
+			  System.out.println(comments.get(0).getTime());
+		  }
 		  return SUCCESS; 
 	  }
 	  public static void main(String[] args) {
 			// TODO Auto-generated method stub
-			//测试list方法
+			//测试list1方法
 			CommentAction action = new CommentAction();
-			String id="4";
+			String id="1";
 			//action.view_comment(id);
 		}
 }

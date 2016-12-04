@@ -32,6 +32,7 @@ public class CommentDAO {
 		return result;
 	}
 	/*查看指定博客下的所有评论信息，按照时间排序*/
+	//查不到值时返回[]
 	public ArrayList <Comment> getAllComments(String Id)
 	{
 		ArrayList <Comment> cs = new ArrayList<Comment>(); //集合
@@ -55,20 +56,23 @@ public class CommentDAO {
 		catch(SQLException e)
 		{
 			e.printStackTrace();
-		}	
-		return cs;
+		}			
+			return cs;		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//测试获取所有博客内容
 		CommentDAO commentDAO = new CommentDAO();
-		ArrayList <Comment> getAllComments =commentDAO.getAllComments("4");
-		for(int i=0;i < getAllComments.size();i++){
+		ArrayList <Comment> getAllComments =commentDAO.getAllComments("2");
+		/*for(int i=0;i < getAllComments.size();i++){
 			Comment p = getAllComments.get(i);
 			System.out.println(p);
+		}*/
+		System.out.println(getAllComments);
+		if(getAllComments.size()==0) //判断arrylist是否为[]
+		{
+			System.out.println("74");
 		}
-		
-		
 		
 		
 	}
