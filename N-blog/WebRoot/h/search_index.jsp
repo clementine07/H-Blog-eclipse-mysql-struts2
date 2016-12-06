@@ -14,7 +14,7 @@
 				if(request.getSession().getAttribute("loginUserName")==null && request.getSession().getAttribute("searchUserName")==null)
 				{
 					%>				
-					<script>window.location.href='404';</script> 
+					<script>window.location.href='login.jsp';</script> 
 					<% 						
 				}
 				//未登录时，有search_name返回search_data

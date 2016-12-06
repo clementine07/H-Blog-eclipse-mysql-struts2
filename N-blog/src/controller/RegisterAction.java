@@ -82,7 +82,13 @@ public class RegisterAction extends SuperAction {
 				return "register_failure";
 			}else{
 				//添加错误提示信息
-				userDAO.addUsers(user);
+				userDAO.addUsers(username,password,email);
+				session.removeAttribute("loginUserName");//先清除，后添加
+				session.setAttribute("loginUserName",username);
+				if(session.getAttribute("searchUserName")==null)//登录时，若searchname==null,默认设置searchname=username 返回index.jsp
+				{
+					session.setAttribute("searchUserName",username);
+				}
 				return "register_success";
 			}
 		}

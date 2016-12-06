@@ -41,21 +41,20 @@
                             <div class="col-md-1">
                                 <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> 刷新</button>
                             </div>
+                            <s:form action="./Search" method="post">
                             <div class="col-md-11">
                                 <div class="input-group">
-                                    <input type="text" placeholder="请输入博客名称" class="input-sm form-control"> <span class="input-group-btn">
+                                    <input type="text" placeholder="请输入博客名称" class="input-sm form-control" name="searchtitle"> <span class="input-group-btn">
+                                        <input type="hidden" name="username" value="${sessionScope.searchUserName}">
                                         <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
                                 </div>
                             </div>
+                            </s:form>
                         </div>
 
                         <div class="project-list">
-
-                            <table class="table table-hover">
-                            
-                                <tbody>
-                                
-                                
+                            <table class="table table-hover">                         
+                                <tbody>                
                                 <s:iterator value="blogs">
                                     <tr>
                                         <td class="project-status">
@@ -84,14 +83,15 @@
                                                 <div style='width: <s:property value="comment" />%;' class="progress-bar"></div>
                                             </div>
                                         </td>
-                                       <%--  <s:if test="username == session.getAttribute('loginUserName')" > --%>
+                                        <!--判定  本人博客才有修改权限  -->
+                                        <s:if test="username == #session.loginUserName" >
                                         <td class="project-actions">                                           
                                            <a  href='<s:url  action="Edit"><s:param  name="id"	value="id" /></s:url>' class="btn btn-white btn-sm">
                                            <i class="fa fa-pencil"></i> 编辑 </a>   
                                             <a  href='<s:url  action="soft_delete"><s:param  name="id" value="id" /></s:url>'  class="btn btn-white btn-sm">
                                             <i class="fa fa-folder"></i> 删除 </a>                                         
                                         </td>
-                                      <%--   </s:if>  --%>
+                                        </s:if> 
                                     </tr>     
                                                                                                      
                                     </s:iterator>                                  

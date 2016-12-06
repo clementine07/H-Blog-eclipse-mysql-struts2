@@ -22,27 +22,33 @@
 </package>
 <!--博客的增删改查 -->
 <package name="CRUDDEMO" namespace="/"  extends="struts-default">
+	<!--管理层 通过博主查找所有文章 -->
 	<action name="List" class="controller.BlogAction" method="index">
 	<result >/h/table_data_tables.jsp</result>
 	</action>
+	<!-- 用户层 通过博主查找所有文章 -->
 	<action name="List2" class="controller.BlogAction" method="index">
 	<result >/h/projects.jsp</result>
 	</action>
-	<!-- <action name="Search" class="controller.BlogAction" method="search">
-	<result >/frontstage/blog/search.jsp</result>
-	</action> -->
+	<!--查找博客  -->
+	<action name="Search" class="controller.BlogAction" method="searchtitle">
+	<result >/h/projects.jsp</result>
+	</action>
+	<!--实删除  -->
 	<action  name="Remove" class="controller.BlogAction" method="remove">
 	<result type ="redirect">/h/List.action</result>
 	</action>
 	<!--edit页面获取 -->
 	<action name="Edit" class="controller.BlogAction" method="edit">
-	<result>/h/form_basic.jsp</result>
+	<result>/h/edit.jsp</result>
 	</action>
+	<!--增加  -->
 	<action name="Add" class="controller.BlogAction" method="add">
 	<result type="redirect">/h/List.action</result>
 	</action>
+	<!--修改  -->
 	<action name="Change" class="controller.BlogAction" method="change">
-	<result type="redirect">/h/List.action</result>
+	<result type="redirect">/h/List2.action</result>
 	</action>
 	<!-- 获取博客详情视图，然后chain到viewcomment.action -->
 	<action name="View" class="controller.BlogAction" method="load">  
@@ -55,6 +61,23 @@
 	<action name="ViewComment" class="controller.CommentAction" method="view_comment">
 	<result >/h/article.jsp</result>
 	</action>
+	
+	<!--增加comment  -->
+	<!-- 获取博客详情视图，然后chain到viewcomment.action -->
+	<action name="addcomment" class="controller.CommentAction" method="add_commnet">  
+	<result type="chain">
+	<param name="actionName">addcommentBlog
+	</param>
+	</result>
+	</action>
+	<!--增加blog中Comment的次数，并返回列表查看，不增加阅读次数-->
+	<action name="addcommentBlog" class="controller.BlogAction" method="addcommentBlog">
+	<result type="chain">
+	<param name="actionName">ViewComment
+	</param>
+	</result>
+	</action>
+	
 	<!--回收站 显示已经软删除的内容  -->
 	<action name="recycle" class="controller.BlogAction" method="recycle">
 	<result>/h/recycle_bin.jsp</result>
@@ -65,7 +88,21 @@
 	</action>
 	<!--软删除  -->
 	 <action name="soft_delete" class="controller.BlogAction" method="softdel">
-	<result>/h/history_back.jsp</result>
+	<result type="redirect">/h/recycle.action?searchname=${#session['loginUserName']}</result>
+	</action> 
+	<!--回收站恢复  -->
+	<action name="recycle_save" class="controller.BlogAction" method="save">
+	<result type="redirectAction">  
+            <param name="actionName">/h/recycle.action</param>  
+            <param name="searchname">${#session['loginUserName']}</param>  
+    </result>  
+	</action> 
+	<!--草稿箱恢复  -->
+	<action name="drafts_save" class="controller.BlogAction" method="save">
+	<result type="redirectAction">  
+            <param name="actionName">/h/drafts.action</param>  
+            <param name="searchname">${#session['loginUserName']}</param>  
+    </result>  
 	</action> 
 </package>
 
@@ -74,11 +111,9 @@
 	<result name="index_success" >/h/index.jsp</result>
 	<result name="index_failure">/h/404</result>
 	</action>
-	
 </package>
 <!--Comment相关 -->
 <package name="CommentCRUD" namespace="/"  extends="struts-default">
-	
 	<action name="AddComment" class="controller.CommentAction" method="add">
 	<result type="redirect">/h/View.action</result>
 	</action>

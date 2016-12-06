@@ -16,6 +16,21 @@ public class BlogAction extends ActionSupport {
 	BlogDAO blogDAO = new BlogDAO();
 	private String searchname;
 	private String softdel;
+	private String searchtitle;
+	private String username;
+	
+	public String getSearchtitle() {
+		return searchtitle;
+	}
+	public void setSearchtitle(String searchtitle) {
+		this.searchtitle = searchtitle;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public String getId() {
 		return id;
 	}
@@ -67,16 +82,14 @@ public class BlogAction extends ActionSupport {
 		  blogDAO. deleteBlogById(id); 
 		  return SUCCESS;  
 	  }
-	 //模糊查询博客
-	/*public String search(){
-		blogs= blogDAO.queryByLike(searchname);
-		System.out.println(blogs.get(0).getData());
-		return SUCCESS;
-	}*/
+	 //模糊查询博客(根据博客名）
+	  public String searchtitle(){
+			blogs= blogDAO.queryByTitle(searchtitle,username);
+			return SUCCESS;
+		}
+	//模糊查询博客(根据博主名）
 	  public String search(){
 			blogs= blogDAO.queryByLike(searchname);
-			System.out.println(blogs);
-			System.out.println(searchname);
 			return SUCCESS;
 		}
 	//通过id获取单个并增加read次数
@@ -86,10 +99,15 @@ public class BlogAction extends ActionSupport {
 		blog = blogDAO.getBlogById(id);
 		return SUCCESS;
 		}
+	//增加comment
+	public String addcommentBlog() {
+		blogDAO.addcommentBlog(id);	
+		blog = blogDAO.getBlogById(id);
+		return SUCCESS;
+		}
 	//修改获取视图
 	public String edit() {
 		System.out.println(id);
-		blogDAO.addreadBlog(id);
 		blog = blogDAO.getBlogById(id);
 		return SUCCESS;
 		}
@@ -106,20 +124,25 @@ public class BlogAction extends ActionSupport {
 	//主页获取
 	public String index(){
 		blogs= blogDAO.queryByName(searchname);
-		System.out.println(blogs);
-		System.out.println(searchname);
 		return SUCCESS;		
 	}
 	//回收站
 	public String recycle(){
 		blogs= blogDAO.queryByRecycle(searchname);
-		/*System.out.println(blogs);
-		System.out.println(searchname);*/
+		if(blogs.size()==0){
+			this.addFieldError("RecycleError", "回收站为空");
+			blogs=null;	
+		}		
 		return SUCCESS;		
 	}
+
 	//草稿箱
 		public String drafts(){
 			blogs= blogDAO.queryByDrafts(searchname);
+			if(blogs.size()==0){
+				this.addFieldError("DraftsError", "草稿箱为空");
+				blogs=null;	
+			}		
 			return SUCCESS;		
 		}
 	//软删除
@@ -128,6 +151,11 @@ public class BlogAction extends ActionSupport {
 			/*blog = blogDAO.getBlogById(id);//根据id获取blog整条信息
 			softdel=blog.getUsername();//根据blog传出username的值
 */			return SUCCESS;
+		}
+		/*恢复指定ID的博客信息，不可以修改ID*/
+		public String save(){
+			 blogDAO.saveBlogById(id);
+			 return SUCCESS;	
 		}
 	  public static void main(String[] args) {
 		// TODO Auto-generated method stub

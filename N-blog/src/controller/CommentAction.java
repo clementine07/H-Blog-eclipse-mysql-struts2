@@ -37,7 +37,7 @@ public class CommentAction extends ActionSupport {
 		this.commentDAO = commentDAO;
 		}
 	//增加
-	public String add() {
+	public String add_commnet() {
 		commentDAO.addComment(comment);
 		return SUCCESS;
 		}
@@ -56,6 +56,11 @@ public class CommentAction extends ActionSupport {
 			  System.out.println(comments.get(0).getTime());
 		  }
 		  return SUCCESS; 
+	  }
+	  //delete comment
+	  public String delete_comment() {
+			commentDAO.deleteCommentById(id);
+			return SUCCESS;
 	  }
 	  public static void main(String[] args) {
 			// TODO Auto-generated method stub

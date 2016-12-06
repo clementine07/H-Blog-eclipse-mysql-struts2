@@ -10,11 +10,11 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/plugins/markdown/bootstrap-markdown.min.css" />
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="h/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="h/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="h/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="h/css/plugins/markdown/bootstrap-markdown.min.css" />
+    <link href="h/css/style.css?v=4.1.0" rel="stylesheet">
 
 </head>
 
@@ -48,52 +48,29 @@
                           
                                <div class="form-group">				   
 							     <div class="ibox-content">
-							     <input  type="text" placeholder="Title" class="form-control" name="blog.title" />
+							     <input  type="text" placeholder="Title" class="form-control" name="blog.title" value="<s:property value="blog.title"/>"/>
+							     </div>
 							    <br/>
-                                <textarea  data-provide="markdown" rows="10" name="blog.data"></textarea>
-                                   <%-- <s:textarea   data-provide="markdown" rows="10" name="blog.title"  />    --%>
-                                   <br/> 
+                                <textarea  data-provide="markdown" rows="10" name="blog.data" ><s:property value="blog.data"/></textarea>  <!-- value放到2个textarea之间  -->                          
+                                <br/> 
                                 <div class="form-group">
                                 <label class="col-sm-2 control-label">标签</label>
-                                <div class="col-sm-10">
-                                    <input type="text" placeholder="" class="form-control" name="blog.label" >
-                                    <input type="hidden" class="form-control" name="blog.username" value="${sessionScope.loginUserName}" >
+                                <div class="ibox-content">
+                                    <input type="text" placeholder="" class="form-control" name="blog.label" value="<s:property value="blog.label"/>"/>                               
                                 </div>
                             </div>
                             <hr/>
+                            <!-- 一些默认不能修改的参数 -->
                             <input type="hidden" placeholder="" class="form-control"  id ="time" name="blog.time" >
+                            <input type="hidden" placeholder="" class="form-control" name="blog.status" value="0">
+                             <input type="hidden" placeholder="" class="form-control" name="blog.read_times" value="0">
+                              <input type="hidden" placeholder="" class="form-control" name="blog.comment" value="0">
+                              <input type="hidden" placeholder="" class="form-control" name="blog.id" value="<s:property value="blog.id"/>" >
                         	<script>
 							 var now = new Date(); 
 							 time.value=now.getFullYear() + "/"+ (now.getMonth()+1)+"/"+now.getDate()+" "+now.getHours()+":"+now.getMinutes(); 
-							 </script>                
-                               <!--  <div class="checkbox i-checks">
-                                        <label>
-                                            <input type="checkbox" value="0" name="blog.status"> <i></i> 发布</label>
-                                    </div>  
-							    <hr/>
-							    <div class="checkbox i-checks">
-                                        <label>
-                                            <input type="checkbox" value="-1" name="blog.status"> <i></i> 暂存到草稿箱</label>
-                                    </div>  
-							    <hr/> -->
-							     <!-- div class="radio">
-                                        <label>
-                                            <input type="radio" checked="" id="optionsRadios1" name="blog.status">发表</label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio"   value="2" id="optionsRadios2" name="blog.status">暂存</label>
-                                    </div> -->
-                                  <%--    <div class="col-sm-10">
-                                    <select class="form-control m-b" name="blog.status"">
-                                        <option value="0">选项 1</option>
-                                        <option value="2">暂存</option>
-                                     
-                                    </select>
-                                    </div> --%>
-                                    <br/>
-                             
-							    <button type="submit" class="btn">发布</button>
+							</script>                             
+							 <button type="submit" class="btn">发布</button>
                             </div>
                             </form>
                         </div>
@@ -112,17 +89,17 @@
     </div>
 
     <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="h/js/jquery.min.js?v=2.1.4"></script>
+    <script src="h/js/bootstrap.min.js?v=3.3.6"></script>
 
     <!-- 自定义js -->
-    <script src="js/content.js?v=1.0.0"></script>
+    <script src="h/js/content.js?v=1.0.0"></script>
 
     <!-- simditor -->
-    <script type="text/javascript" src="js/plugins/markdown/markdown.js"></script>
-    <script type="text/javascript" src="js/plugins/markdown/to-markdown.js"></script>
-    <script type="text/javascript" src="js/plugins/markdown/bootstrap-markdown.js"></script>
-    <script type="text/javascript" src="js/plugins/markdown/bootstrap-markdown.zh.js"></script>
+    <script type="text/javascript" src="h/js/plugins/markdown/markdown.js"></script>
+    <script type="text/javascript" src="h/js/plugins/markdown/to-markdown.js"></script>
+    <script type="text/javascript" src="h/js/plugins/markdown/bootstrap-markdown.js"></script>
+    <script type="text/javascript" src="h/js/plugins/markdown/bootstrap-markdown.zh.js"></script>
 
 
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>

@@ -67,7 +67,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            
+                             <s:if test="blogs==null">
+                            <s:fielderror/><!-- 显示表单验证的出错信息 -->
+                            </s:if>
+                             <s:else>
                             <s:iterator value="blogs">
                                 <tr class="gradeX">
                                    <td> <a  href='<s:url  action="View"><s:param  name="id"
@@ -76,7 +79,10 @@
                                     <td><s:property value="read" /></td>
                                     <td><s:property value="comment" /></td>                           
                                     <td class="center">
-                                 <%--    <a  href='<s:url  action="Load"><s:param  name="id"	value="id" /></s:url>'>Edit</a> --%>
+                                 	<a  href='<s:url  action="recycle_save"><s:param  name="id"
+									value="id" /></s:url>'>
+									还原
+									</a>
 									&nbsp;
 									<a  href='<s:url  action="Remove"><s:param  name="id"
 									value="id" /></s:url>'>
@@ -90,6 +96,7 @@
                                     </td>                                
                                 </tr>
                              </s:iterator>
+                              </s:else>
                           
                             </tbody>
                             <tfoot>

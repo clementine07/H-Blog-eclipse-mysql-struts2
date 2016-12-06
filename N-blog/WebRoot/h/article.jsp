@@ -223,16 +223,23 @@
 
                                 <h2>发表评论：</h2>
                                 
-                                <form method="get" class="form-horizontal" action="#" method="post">
-                     
-                      <s:hidden name="blog.id"></s:hidden>                                                       
+                             <form method="post" class="form-horizontal" action="addcomment" >                                                            
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户名：</label>
                                 <div class="col-sm-10">     
-                                 <textarea id="ccomment" name="comment" class="form-control" required="" aria-required="true"></textarea>                           
-                             
+                                 <textarea id="ccomment" name="comment.data" class="form-control" required="" aria-required="true"></textarea>                           
                                 </div>
                             </div>
+                            <!-- 一些默认不能修改的参数 -->
+                            <input type="hidden" placeholder="" class="form-control"  id ="time" name="comment.time" >
+                            <input type="hidden" placeholder="" class="form-control" name="comment.bid" value="<s:property value="blog.id" />">
+                             <input type="hidden" placeholder="" class="form-control" name="id" value="<s:property value="blog.id" />">
+                              <input type="hidden" placeholder="" class="form-control" name="comment.fromuser" value="${sessionScope.loginUserName }">
+                              <input type="hidden" placeholder="" class="form-control" name="comment.touser" value="${sessionScope.searchUserName }" >
+                        	<script>
+							 var now = new Date(); 
+							 time.value=now.getFullYear() + "/"+ (now.getMonth()+1)+"/"+now.getDate()+" "+now.getHours()+":"+now.getMinutes(); 
+							</script>        
                             <div class="hr-line-dashed"></div>                                              
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">

@@ -77,6 +77,24 @@ public class BlogDAO {
 		
 		return result;
 	}
+	/*恢复指定ID的博客信息，不可以修改ID*/
+	public int saveBlogById(String Id)
+	{
+		 int result =0;
+		Connection con = db.MyConnection.getConnection();
+		try
+		{
+			PreparedStatement ps = con.prepareStatement("UPDATE blogs SET  status=0 WHERE id=?");			
+			ps.setString(1, Id);
+			result = ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	/*增加指定ID的博客信息*/
 	public int addBlog(Blog blog)
 	{
@@ -101,17 +119,19 @@ public class BlogDAO {
 		return result;
 	}
 	/*修改指定ID的博客信息，不可以修改ID*/
+	/*虽然不是所有的东西都被修改，但是因为参数是Blog类型，所以需要前端把所有参数都传过来*/
 	public int editBlog(Blog blog)
 	{
 		 int result =0;
 		Connection con = db.MyConnection.getConnection();
 		try
 		{
-			PreparedStatement ps = con.prepareStatement("UPDATE blogs SET  time=?, data=?, title=? WHERE id=?");
+			PreparedStatement ps = con.prepareStatement("UPDATE blogs SET  time=?, data=?, title=?,label=? WHERE id=?");
 			ps.setString(1, blog.getTime());
 			ps.setString(2, blog.getData());
 			ps.setString(3, blog.getTitle());
-			ps.setString(4, blog.getId());
+			ps.setString(4,blog.getLabel());
+			ps.setString(5, blog.getId());		
 			result = ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -138,8 +158,12 @@ public class BlogDAO {
 				 p=new Blog();
 				p.setId(rs.getString("id"));
 				p.setTime(rs.getString("time"));	
-				p.setData(rs.getString("data"));	
-				p.setTitle(rs.getString("title"));
+				p.setData(rs.getString("data"));
+				p.setRead_times(rs.getInt("read_times"));
+				p.setComment(rs.getInt("comment"));
+				p.setLabel(rs.getString("label"));
+				p.setUsername(rs.getString("username"));
+				p.setStauts(rs.getInt("status"));
 				blogs.add(p);
 			}
 		}
@@ -203,6 +227,8 @@ public class BlogDAO {
 						p.setTitle(rs.getString("title"));
 						p.setComment(rs.getInt("comment"));
 						p.setRead_times(rs.getInt("read_times"));
+						p.setLabel(rs.getString("label"));
+						p.setUsername(rs.getString("username"));
 					}
 				}
 				catch(SQLException e)
@@ -224,6 +250,40 @@ public class BlogDAO {
 					PreparedStatement ps = con.prepareStatement("SELECT * FROM blogs WHERE username=? AND status=0 ORDER BY time DESC");
 					/*ps.setInt(1, 0); */
 					ps.setString(1, Name); 
+					ResultSet rs = ps.executeQuery();
+					while(rs.next())
+					{
+						p=new Blog();
+						p.setId(rs.getString("id"));
+						p.setTime(rs.getString("time"));	
+						p.setData(rs.getString("data"));	
+						p.setTitle(rs.getString("title"));
+						p.setLabel(rs.getString("label"));
+						p.setRead_times(rs.getInt("read_times"));
+						p.setComment(rs.getInt("comment"));
+						p.setUsername(rs.getString("username"));
+						blogs.add(p);
+					}
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			return blogs;
+			}
+			//根据所要查看的用户名，来筛选出相对应的Blog（主页显示）
+			public ArrayList <Blog> queryByTitle(String Title,String Username)
+			{
+				ArrayList <Blog> blogs = new ArrayList<Blog>(); // 商品集合
+				Connection con = db.MyConnection.getConnection();
+				Statement sql;
+				Blog p;
+				try
+				{
+					//time倒序，根据username查询所有结果，显示status=0的数据
+					PreparedStatement ps = con.prepareStatement("SELECT * FROM blogs WHERE title Like ? AND status=0 AND username=? ORDER BY time DESC");
+					ps.setString(1,"%"+ Title+"%");
+					ps.setString(2, Username); 
 					ResultSet rs = ps.executeQuery();
 					while(rs.next())
 					{
@@ -330,6 +390,25 @@ public class BlogDAO {
 				
 				return result;
 			}
+			//增加comment次数
+			public int addcommentBlog(String Id)
+			{
+				 int result =0;
+				Connection con = db.MyConnection.getConnection();
+				try
+				{
+					PreparedStatement ps = con.prepareStatement("UPDATE blogs SET  comment = comment+1 WHERE id=?");
+					//可以让null值也加1
+					ps.setString(1, Id);
+					result = ps.executeUpdate();
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+				
+				return result;
+			}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//测试获取所有博客内容
@@ -352,10 +431,11 @@ public class BlogDAO {
 		System.out.println(blogs);
 		*/
 		//测试修改blog 成功
-		/*BlogDAO blogDAO = new BlogDAO();
-		Blog blog =new Blog("5","1996/7/20","3","4");
+		BlogDAO blogDAO = new BlogDAO();
+		//String id,String title,String time,String data ,int read_times,int comment ,String label,String username, int stauts
+		Blog blog =new Blog("20","aaa2222","2016-12-04 23:26:00","**aaa2222**",0,0,"zzzzz","606060",0);
 		int a = blogDAO.editBlog(blog);
-		System.out.println(a);*/
+		System.out.println(a);
 		//增加
 		/*BlogDAO blogDAO = new BlogDAO();
 		Blog blog =new Blog("9","标题","1996/7/20","内容",0,0,"标签");
@@ -368,9 +448,9 @@ public class BlogDAO {
 		 ArrayList <Blog> blogs =blogDAO.queryByName(Name);
 		System.out.println(blogs);*/
 		
-		BlogDAO blogDAO = new BlogDAO();	
+		/*BlogDAO blogDAO = new BlogDAO();	
 		int a = blogDAO.addreadBlog("4");
-		System.out.println(a);
+		System.out.println(a);*/
 		
 	}
 

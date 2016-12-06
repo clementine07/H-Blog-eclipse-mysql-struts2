@@ -29,16 +29,17 @@ public class UserDAO {
 		return users;
 	}
 	//增加User 注册
-	public int addUsers(User user)
+	public int addUsers(String username ,String password,String email)
 	{
 		int result = 0;
 		Connection con = db.MyConnection.getConnection();		
 		try
 		{
 			PreparedStatement ps = con.prepareStatement("INSERT INTO users (username,password,email) VALUE (?,?,?)");
-			ps.setString(1, user.getUsername());
-			ps.setString(2, user.getPassword());		
-			ps.setString(3, user.getEmail());
+			ps.setString(1, username);
+			ps.setString(2, password);	
+			ps.setString(3, email);
+			/*ps.setString(4, user.getImg());*/
 			result = ps.executeUpdate();
 			
 		}
@@ -100,10 +101,10 @@ public class UserDAO {
 		UserDAO myLgoin=new UserDAO();
 		System.out.println(myLgoin.login("admin","admin"));
 		//测试修改blog 成功
-		UserDAO blogDAO = new UserDAO();
+		/*UserDAO blogDAO = new UserDAO();
 		User blog =new User("7777","606060","7777@qq.com");
 		int a = blogDAO.addUsers(blog);
-		System.out.println(a);
+		System.out.println(a);*/
 	}
 
 }
